@@ -1,0 +1,21 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int spec = 100;
+	char classe1 = 'd';
+	double z = 3.55;
+	
+	cout << "Valor da variavel spec :  \n" << spec << endl;
+		cout << "Valor da variavel classe1 : \n" << classe1 << endl;
+		cout << "Valor da variavel z : \n" << z << endl;
+		cout << endl;
+		cout << "Tamanho da variavel spec : \n" << sizeof(spec) << "bytes"<< endl;
+		cout << "Tamanho da variavel classe1 : \n" << sizeof(classe1) << "bytes" << endl;
+		cout << "Tamanho da variavel z : \n" << sizeof(z) << "bytes" << endl;
+		system("pause");
+
+	return 0;
+}
+ 
