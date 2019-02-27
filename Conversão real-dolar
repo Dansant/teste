@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Double a = 0;
+            Double b = 0;
+            Double c;
+            Double z = 0;
+            Double q;
+
+            Console.WriteLine("Tendo em vista que a cotação do DÓLAR em relação ao REAL é 3,73 e que a cotação do REAL em relação ao DÓLAR é 0,27");
+
+            Console.WriteLine("Digite 8 para converter REAL para DÓLAR. Digite 5 para converter DÓLAR para REAL");
+            a = Double.Parse(Console.ReadLine());
+
+            if ((Math.Pow(a, 1) ) >= 8)
+            {
+                Console.WriteLine("Digite o valor em REAL que você quer Converter :");
+                z = Double.Parse(Console.ReadLine());
+                Console.WriteLine("Digite a cotação do DÓLAR em relação ao REAL : ");
+                b = Double.Parse(Console.ReadLine());
+                c = z * b;
+                Console.Write("Você tem exatamente = " + c);
+                Console.WriteLine("Dolares");
+                Console.WriteLine("Os valores são aproximados dos reais, más pode ocorrer alguns erros em relação às virgulas.");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Digite o valor do DÓLAR que você quer converter : ");
+                b = Double.Parse(Console.ReadLine());
+                Console.WriteLine("Digite a cotação do REAL em relação ao DOLAR :");
+                z = Double.Parse(Console.ReadLine());
+                q = b / z;
+                Console.Write("Você tem exatamente = " + q);
+                Console.WriteLine("Reais");
+                Console.WriteLine("Os valores são aproximados dos reais, más pode ocorrer alguns erros em relação às virgulas.");
+                Console.ReadLine();
+            }
+
+
+        }
+    }
+}
