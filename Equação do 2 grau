@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Double a = 0;
+            Double b = 0;
+            Double c = 0;
+            //Início
+            Console.WriteLine("Ola Usuário!");
+            Console.WriteLine("Bem Vindo ao Bhaskara Facil!" +
+                "\nSiga as instruções e no final você terá á resposta da equação, que você quiser, do segundo grau" +
+                "\n Lembrando que as equações do segundo grau seguem o estilo ax² + bx + c = 0 ");
+            //Começo da definição das variáveis
+            Console.WriteLine("Digite o valor de a = ");
+            a = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o valor de b = ");
+            b = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o valor de c = ");
+            c = Double.Parse(Console.ReadLine());
+            //Condição De Existencia Positiva
+            if ((Math.Pow(b, 2) - 4 * a * c) >= 0)
+            {
+
+                double delta = (b * b) - (4 * a * c);
+                double raiz = Math.Sqrt(delta);
+                var x1 = ((-(b)) + raiz) / (2 * a);
+                var x2 = ((-(b)) - raiz) / (2 * a);
+                Console.WriteLine("Valor de x1 = \n" + x1);
+                Console.WriteLine("Valor de x2 = \n" + x2);
+                Console.Write("O conjunto solução é S={ " + x1);
+                Console.Write(";" + x2);
+                Console.Write("}");
+                Console.ReadLine();
+            }
+            //Condição De Existencia Negativa
+            else
+            {
+
+                Console.WriteLine("O conjunto solução é S={Ø}");
+                Console.ReadLine();
+            }
+        }
+    }
+}
