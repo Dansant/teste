@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            {
+                Console.WriteLine("Olá usuário\n Bem Vindo ao calculador de Collatz");
+                Console.WriteLine("Por Favor insira um número para que possa ser calculada a conjectura da sequencia de Collatz");
+                var consoleReading = string.Empty;
+                var collatzConjectureNumber = 0;
+                while (true)
+                {
+                    consoleReading = Console.ReadLine();
+                    if (int.TryParse(consoleReading, out collatzConjectureNumber))
+                        break;
+                    else
+                    {
+                        Console.WriteLine("Por Favor insira outro número");
+                    }
+                }
+                var collatzNumberCollection = new List<int>();
+
+                Console.WriteLine("O número escrito é {0}, calcularei a sequencia de Collatz:", collatzConjectureNumber);
+
+                collatzNumberCollection.Add(collatzConjectureNumber);
+
+                int collatzStepCounter = 0;
+                while (collatzConjectureNumber > 1)
+                {
+                    collatzConjectureNumber = (collatzConjectureNumber % 2).Equals(0)
+                        ? collatzConjectureNumber / 2
+                        : collatzConjectureNumber * 3 + 1;
+
+                    collatzNumberCollection.Add(collatzConjectureNumber);
+
+                    Console.WriteLine("O número {0} de {1}'s da sequencia de Collatz é: {2}", ++collatzStepCounter, collatzNumberCollection[0], collatzConjectureNumber);
+                    Thread.Sleep(100);
+                }
+
+                Console.WriteLine("A conjectura da sequencia de Collatz para o número {0} tem {1} números", collatzNumberCollection[0], collatzNumberCollection.Count);
+
+                Console.WriteLine("Pronto!");
+                Console.WriteLine("Pressione ENTER para fechar");
+                Console.ReadLine();
+            }
+        }
+    }
+}
