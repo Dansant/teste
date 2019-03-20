@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double n2 = 0, n3 = 0, soma = 0, sub = 0, mult = 0;
+            int n1 = 0;
+            Console.WriteLine("Olá Usuário! \n Digite 1 para somar, 2 para subtrair e 3 para multiplicar.");
+            n1 = int.Parse(Console.ReadLine());
+            switch (n1) {
+                case 1:
+                    Console.WriteLine("Você escolheu soma\n Digite os numeros que você deseja somar:");
+                    n2 = double.Parse(Console.ReadLine());
+                    n3 = double.Parse(Console.ReadLine());
+                    soma = n2 + n3;
+                    Console.WriteLine("A soma é:" + soma);
+                    break;
+                case 2:
+                    Console.WriteLine("Você escolheu subtração\n Digite os numeros que você deseja subtrair");
+                    n2 = double.Parse(Console.ReadLine());
+                    n3 = double.Parse(Console.ReadLine());
+                    sub = n2 - n3;
+                    Console.WriteLine("A subtração é:" + sub);
+                    break;
+                case 3:
+                    Console.WriteLine("Você escolheu multiplicação\n Digite os valores que deseja multiplicar:");
+                    n2 = double.Parse(Console.ReadLine());
+                    n3 = double.Parse(Console.ReadLine());
+                    mult = n2 * n3;
+                    Console.WriteLine("A multiplicação é:" + mult);
+                    break;
+                default:
+                    Console.WriteLine("Você não escolheu nada");
+                    break;
+                }
+            Console.ReadLine();
+            }
+        }
+    }
+
