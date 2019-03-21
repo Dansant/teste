@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double i = 0;
+            double s = 1;
+            double soma = 0;
+            Console.WriteLine("Olá Usuário!");
+            for (double j = 1; j <= 10; j++)
+            {
+                i = s / j;
+                soma += i;
+            }
+            Console.WriteLine("Resultado =" +soma);
+            Console.ReadKey();
+        }
+    }
+}
