@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication19
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double jorge = 1;
+            double som = 0;
+            double numb = 0; 
+            double med = 0;
+            double x = 0;
+            Console.WriteLine("Olá Usuáruio");
+            for (numb=0;numb<=10;numb++)
+            {
+                if (numb %2 ==0)
+                {
+                    Console.WriteLine(numb);
+                    som += numb;
+                }
+            }
+            Console.WriteLine(som);
+            Console.ReadLine();
+        }
+    }
+}
