@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double popub = 65000000;
+            double popua = 80000000;
+            double taxa = 0;
+            Console.WriteLine("Olá Usuário\n ");
+            while (popua > popub)
+            {
+                taxa++;
+                Console.WriteLine(popua);
+                Console.WriteLine(popub);
+                popua = popua * 1.015;
+                popub = popub * 1.03;
+            }
+            Console.WriteLine("Resultado:"+taxa);
+            Console.ReadLine();
+
+        }
+    }
+}
