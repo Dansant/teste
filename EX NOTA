@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
+namespace ConsoleApp4
+{
+    class Program
+    {   
+        static void calculo(double P1, double P2)
+        {
+            double soma = P1 + P2;
+            if (soma >= 60)
+            {
+                Console.WriteLine("Aprovado");
+            }
+            else if (soma >= 40)
+            {
+                Console.WriteLine("Em exame especial");
+            }
+            else
+            {
+                Console.WriteLine("Reprovado");
+            }
+        }
+        static void Main(string[] args)
+        {
+            {
+                double P1;
+                double P2;
+                double alunos = 0;
+                double var = 0;
+                Console.WriteLine("Digite o número de alunos:");
+                alunos = double.Parse(Console.ReadLine());
+                for(var = 1; var <= alunos; var++)
+                {
+                    Console.WriteLine("Insira a primeira nota:");
+                    P1 = double.Parse(Console.ReadLine());
+                    while (P1 > 50 || P1 < 0)
+                    {
+                        Console.WriteLine("Somente números positivos até o 50 são validos");
+                        Console.WriteLine("Insira a primeira nota:");
+                        P1 = double.Parse(Console.ReadLine());
+                    }
+                    Console.WriteLine("Insira a segunda nota:");
+                    P2 = double.Parse(Console.ReadLine());
+                    while (P2 > 50 || P2 < 0)
+                    {
+                        Console.WriteLine("Somente números positivos até o 50 são validos");
+                        Console.WriteLine("Insira a segunda nota:");
+                        P2 = double.Parse(Console.ReadLine());
+                    }
+                    calculo(P1, P2);
+                }
+                Console.WriteLine("Pressione qualquer tecla para sair");
+                Console.ReadLine();
+            }
+        }
+    }
+}
