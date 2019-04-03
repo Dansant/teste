@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double consumo = 0;
+            double resid = 0;
+            double var = 0;
+            double soma = 0;
+            double media = 0;
+            double maior = 0;
+            double menor = 0;
+            Console.WriteLine("Olá Usuário");
+            Console.WriteLine("Vamos ler o consumo de água de um bairro");
+            Console.WriteLine("Digite o número de residencias que tem em seu bairro");
+            resid = double.Parse(Console.ReadLine());
+            var = resid;
+            while (resid>0)
+            {
+                resid--;
+                Console.WriteLine("Informe o valor do consumo de água");
+                consumo = double.Parse(Console.ReadLine());
+                for (; consumo <= 0;)
+                {
+                    Console.WriteLine("Informe o valor do consumo de água\n O VALOR DEVE SER POSITIVO");
+                    consumo = double.Parse(Console.ReadLine());
+                }
+                if (consumo>maior)
+                {
+                    maior = consumo;
+                }
+                else
+                {
+                    menor = consumo;
+                }
+                soma += consumo;
+                media = soma / var;
+            }
+            Console.WriteLine("O número de residências é= {0}", var);
+            Console.WriteLine("A média do consumo de água é= {0}m³", media);
+            Console.WriteLine("O menor valor é= {0}m³", menor);
+            Console.WriteLine("O maior valor é= {0}m³", maior);
+            Console.WriteLine("Digite qualquer coisa para sair");
+            Console.ReadKey();
+        }
+    }
+}
