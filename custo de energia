@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double residencia = 0;
+            int resid = 0;
+            double comercio = 0;
+            double come = 0;
+            int var = 0;
+            double soma = 0;
+            double media = 0;
+            double somac = 0;
+            double mediac = 0;
+            double mediab = 0;
+            double somatorio = 0;
+            double somatoriob = 0;
+            Console.WriteLine("Olá Usuário");
+            Console.WriteLine("Vamos ler o consumo de energia nas residências \n Aperte -1 para encerrar");
+            while (var != -1)
+            {
+                Console.WriteLine("Digite 1 para casa e 2 para comércio");
+                var = int.Parse(Console.ReadLine());
+                if (var == 1)
+                {
+                    resid += var;
+                    Console.WriteLine("Digite o consumo da residência");
+                    residencia = double.Parse(Console.ReadLine());
+                    soma += residencia;
+                    media = soma / resid;
+                }
+                if (var == 2)
+                {
+                    come += var-1;
+                    Console.WriteLine("Digite o consumo do comercio");
+                    comercio = double.Parse(Console.ReadLine());
+                    somac += comercio;
+                    mediac = somac / come;
+                }
+                somatorio = come + resid;
+                somatoriob = media + mediac;
+                mediab = somatoriob/somatorio;
+            }
+            Console.WriteLine("Quantidade de residencias={0}", resid);
+            Console.WriteLine("Quantidade de comercios={0}", come);
+            Console.WriteLine("No bairro tem={0}",somatorio);
+            Console.WriteLine("A media das residencias é={0}", media);
+            Console.WriteLine("A media dos comercios é={0}", mediac);
+            Console.WriteLine("A media do bairro é={0}", mediab);
+            Console.WriteLine("Digite qualquer coisa para sair");
+            Console.ReadKey();
+        }
+    }
+}
