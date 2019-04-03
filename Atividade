@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int cara = 0;
+            int coroa = 0;
+            int var = 0;
+            int soma = 0;
+            int somac = 0;
+            Console.WriteLine("Olá Usuário");
+            Console.WriteLine("Vamos ver a quantidade da caras e coroas que você tirou \n Aperte -1 para encerrar");
+            while (var != -1)
+            {
+                Console.WriteLine("Digite 1 para cara e 2 para coroa");
+                var = int.Parse(Console.ReadLine());
+                if (var == 1)
+                {
+                    cara += var;
+                }
+                if (var == 2)
+                {
+                    coroa += var-1;
+                }
+                soma = cara;
+                somac = coroa;
+            }
+            Console.WriteLine("Cara={0}", soma);
+            Console.WriteLine("Coroa={0}", somac);
+            Console.WriteLine("Digite qualquer coisa para sair");
+            Console.ReadKey();
+        }
+    }
+}
