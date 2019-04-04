@@ -10,15 +10,13 @@ namespace ConsoleApplication24
     {
         static void numbers(int i, int j)
         { 
-                if (i % 2 == 0 && j%2==0)
-                {
                 for (i = i; i < j; i++, j--)
                     {
                     for( ; i % 2 == 0 && j % 2 == 0; i++, j--)
                     {
                         Console.WriteLine($"Passo: i={i}, j={j}");
                     }
-                    }
+                    
             }
         }
             static void Main(string[] args)
