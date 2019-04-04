@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void numbers(int i, int j)
+        { 
+                if (i % 2 == 0 && j%2==0)
+                {
+                for (i = i; i < j; i++, j--)
+                    {
+                    for( ; i % 2 == 0 && j % 2 == 0; i++, j--)
+                    {
+                        Console.WriteLine($"Passo: i={i}, j={j}");
+                    }
+                    }
+            }
+        }
+            static void Main(string[] args)
+        {
+            int i;
+            int j;
+            Console.WriteLine("Olá Usuário");
+            Console.WriteLine("Valor menor:");
+            i = int.Parse(Console.ReadLine());
+            Console.WriteLine("Valor maior:");
+            j = int.Parse(Console.ReadLine());
+            numbers(i, j);
+            Console.ReadKey();
+        }
+    }
+}
