@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double idade = 0;
+            double pessoas = 0;
+            double var = 0;
+            double soma = 0;
+            double media = 0;
+            double maior = 0;
+            double menor = int.MaxValue;
+            string sexo;
+            double homens = 0;
+            double mulheres = 0;
+            double contador=0;
+            double count=0;
+            Console.WriteLine("Olá Usuário");
+            Console.WriteLine("Vamos ler a idade e o sexo de pessoas em um grupo");
+            Console.WriteLine("Digite o número de pessoas que tem em seu grupo");
+            pessoas = double.Parse(Console.ReadLine());
+            var = pessoas;
+            while ( var > 0)
+            {
+                Console.WriteLine("Voçê é homem ou mulher??");
+                sexo = Console.ReadLine();
+                int nameLength = sexo.Length;
+                if (var > 0 && sexo.Length ==5)
+                {
+                    homens++;
+                    Console.WriteLine("Informe a sua idade (homem)");
+                    idade = double.Parse(Console.ReadLine());
+                    count = homens;
+                    soma += idade;
+                    media = soma / count;
+                    var--;
+                }
+                if (var > 0 && sexo.Length == 6)
+                {
+                    mulheres++;
+                    contador = mulheres;
+                    Console.WriteLine("Informe a sua idade (mulher)");
+                    idade = double.Parse(Console.ReadLine());
+                    var--;
+                }
+                if (idade > maior)
+                {
+                    maior = idade;
+                }
+                if(idade<menor)
+                {
+                    menor = idade;
+                }
+            }
+            Console.WriteLine("O número de mulheres é={0}", contador);
+            Console.WriteLine("O número de homens é= {0}", count);
+            Console.WriteLine("A média da idade dos homens é= {0}", media);
+            Console.WriteLine("A maior idade é= {0}", maior);
+            Console.WriteLine("A menor idade é= {0}", menor);
+            Console.WriteLine("Digite qualquer coisa para sair");
+            Console.ReadKey();
+        }
+    }
+}
