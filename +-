@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void numeros(int numb)
+        {
+            int maior = 0;
+            int menor = int.MaxValue;
+            while (numb != -1)
+            {
+                Console.WriteLine("Informe um valor INTEIRO.");
+                numb = int.Parse(Console.ReadLine());
+                for (; numb<0&&numb!=-1;)
+                {
+                    Console.WriteLine("O VALOR DEVE SER POSITIVO.\n Informe um valor INTEIRO.");
+                    numb = int.Parse(Console.ReadLine());
+                }
+                if (numb > maior)
+                {
+                    maior = numb;
+                }
+                if (numb<maior && numb > 0)
+                {
+                    menor = numb;
+                }
+            }
+            Console.WriteLine("O maior número é:{0}",maior);
+            Console.WriteLine("O menor número é:{0}",menor);
+        }
+        static void Main(string[] args)
+        {
+            int numb = 0;
+            Console.WriteLine("OBS: PARA PARAR PRESSIONE -1");
+            numeros(numb);
+            Console.WriteLine("Pressione qualquer botão para sair");
+            Console.ReadKey();
+        }
+    }
+}
