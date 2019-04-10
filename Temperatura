@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double temp=0;
+            double soma = 0;
+            double media = 0;
+            double maior = double.MinValue;
+            double menor = double.MaxValue;
+            int count;
+            int var;
+            Console.WriteLine("Olá Usuário\n Digite a quantidade de valores(temperatura) que você desejar");
+            count = int.Parse(Console.ReadLine());
+            var = count;
+            while (var > 0)
+            {
+                Console.WriteLine("Qual é o valor da temperatura?");
+                temp = double.Parse(Console.ReadLine());
+                var--;
+                for (; temp > maior;)
+                {
+                    maior = temp;
+
+                }
+                for (; temp < menor;)
+                {
+                    menor = temp;
+                }
+                soma += temp;
+            }
+            media = soma / count;
+        Console.WriteLine("A temperatura média foi de:{0}°C\n A maior temperatura foi de {1}°C e a menor foi de {2}°C", media,maior,menor);
+            Console.ReadKey();
+        }
+    }
+}
