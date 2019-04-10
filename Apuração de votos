@@ -1,0 +1,204 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double joao=0;
+            double jose=0;
+            double maria=0;
+            double branco=0;
+            double nulo=0;
+            int numb=0;
+            int var=0;
+            int arm=0;
+            double countj=0;
+            double countjs = 0;
+            double countm = 0;
+            double countb = 0;
+            double countn = 0;
+            double primeiro = 0;
+            double segundo = 0;
+            double terceiro = 0;
+            string vencedor="";
+            string second="";
+            string perdedor="";
+            Console.WriteLine("LEMBRE-SE:\nDigite 1 para votar no JOÃO\nDigite 2 para votar no JOSE\nDigite 3 para votar na MARIA\nDigite 4 para votar em BRANCO\nDigite 5 para ANULAR seu voto");
+            Console.WriteLine("\nInforme o número de pessoas nessa eleição");
+            var = int.Parse(Console.ReadLine());
+            arm = var;
+            while (var > 0)
+            {
+                var--;
+                Console.WriteLine("\nINFORME SEU VOTO");
+                numb = int.Parse(Console.ReadLine());
+                switch (numb)
+                {
+                    case 1:
+                        Console.WriteLine("Você votou em JOÃO");
+                        joao++;
+                        countj += joao;
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Você votou em JOSE");
+                        jose++;
+                        countjs += jose;
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Você votou em MARIA");
+                        maria++;
+                        countm += maria;
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Você votou BRANCO");
+                        branco++;
+                        countb += branco;
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Vcoê ANULOU seu voto");
+                        nulo++;
+                        countn += nulo;
+                        break;
+                    default:
+                        Console.WriteLine("\n  INVALIDO.");
+                        var++;
+                        break;
+                }
+                if (joao > jose && joao > maria)
+                {
+                    primeiro = joao;
+                    vencedor = "JOÃO";
+                }
+                if (jose > joao && jose > maria)
+                {
+                    primeiro = jose;
+                    vencedor = "JOSE";
+                }
+                if (maria > jose && maria > joao)
+                {
+                    primeiro = maria;
+                    vencedor = "MARIA";
+                }
+                if (joao > jose && joao < maria)
+                {
+                    segundo = joao;
+                    second = "JOÃO";
+                }
+                if (joao < jose && joao > maria)
+                {
+                    segundo = joao;
+                    second = "JOÃO";
+                }
+                if (jose > joao && jose < maria)
+                {
+                    segundo = jose;
+                    second = "JOSE";
+                }
+                if (jose < joao && jose > maria)
+                {
+                    segundo = jose;
+                    second = "JOSE";
+                }
+                if (maria > jose && maria < joao)
+                {
+                    segundo = maria;
+                    second = "MARIA";
+                }
+                if (maria < jose && maria > joao)
+                {
+                    segundo = maria;
+                    second = "MARIA";
+                }
+                if (joao < jose && joao < maria)
+                {
+                    terceiro = joao;
+                    perdedor = "JOÃO";
+                }
+                if (jose < joao && jose < maria)
+                {
+                    terceiro = jose;
+                    perdedor = "JOSE";
+                }
+                if (maria < jose && maria < joao)
+                {
+                    terceiro = maria;
+                    perdedor = "MARIA";
+                }
+                if (maria == jose && maria > joao)
+                {
+                    vencedor = "Empate entre MARIA E JOSE";
+                    primeiro = maria+jose;
+                    second = "";
+                    segundo = 0;
+
+                }
+                if (maria == joao && maria > jose)
+                {
+                    vencedor = "Empate entre MARIA E JOÃO";
+                    primeiro = maria+joao;
+                    second = "";
+                    segundo = 0;
+
+                }
+                if (maria == jose && maria < joao)
+                {
+                    second = "Empate entre MARIA E JOSE";
+                    segundo = maria+jose;
+                    perdedor = "";
+                    terceiro = 0;
+                }
+                if (maria == joao && maria < jose)
+                {
+                    second = "Empate entre MARIA E JOAO";
+                    segundo = maria+joao;
+                    perdedor = "";
+                    terceiro = 0;
+                }
+                if (jose == joao && joao > maria)
+                {
+                    vencedor = "Empate entre JOSE E JOAO";
+                    primeiro = joao+jose;
+                    second = "";
+                    segundo = 0;
+                }
+                if (jose == joao && jose < maria)
+                {
+                    second = "Empate entre JOSE E JOAO";
+                    segundo = joao+jose;
+                    perdedor = "";
+                    terceiro = 0;
+                }
+                if (maria == joao && maria == jose)
+                {
+                    vencedor = "Empate entre os três";
+                    primeiro = maria + jose + joao;
+                    second = "";
+                    segundo = 0;
+                    perdedor = "";
+                    terceiro = 0;
+                }
+            }
+            Console.WriteLine("\nJOÃO teve {0} voto(s)", joao);
+            Console.WriteLine("JOSE teve {0} voto(s)", jose);
+            Console.WriteLine("MARIA teve {0} voto(s)", maria);
+            Console.WriteLine("Ocorreram {0} votos branco(s)", branco);
+            Console.WriteLine("Ocorreram {0} votos nulo(s)", nulo);
+            Console.WriteLine("A eleição teve {0} participantes", arm);
+            Console.WriteLine("O vencedor:\n {0},com {1} voto(s)", vencedor, primeiro);
+            Console.WriteLine("O segundo lugar:\n {0},com {1} voto(s)", second, segundo);
+            Console.WriteLine("O terceiro lugar:\n {0},com {1} voto(s)", perdedor, terceiro);
+            Console.WriteLine("Digite qualquer coisa para sair");
+            Console.ReadKey();
+        }
+    }
+}
