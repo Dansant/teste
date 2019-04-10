@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    class Program
+    {
+        static void imprime(double valor, string descricao)
+            {
+            Console.WriteLine("Valor:R${0}\nDescrição:{1}", valor, descricao);
+            }
+        static void altera(ref double valor)
+        {
+            Console.Write("Digite o novo valor:");
+            valor = double.Parse(Console.ReadLine());
+        }
+        static void Main(string[] args)
+        {
+            string descricao;
+            double valor;
+            Console.WriteLine("Olá Usuário\nInforme o valor");
+            valor = double.Parse(Console.ReadLine());
+            Console.WriteLine("Informe o nome do produto");
+            descricao = Console.ReadLine();
+            imprime(valor, descricao);
+            altera(ref valor);
+            imprime(valor, descricao);
+            Console.ReadKey();
+        }
+    }
+}
