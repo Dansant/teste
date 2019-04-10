@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numero;
+            Console.WriteLine("Entre com o número que será fatorado:");
+            numero = int.Parse(Console.ReadLine());
+            int fatorial;
+            fatorial = numero;
+
+            for (int i = numero - 1; i > 1; i--)
+            {
+                fatorial *= i;
+            }
+
+            Console.WriteLine("Valor total do fatorial:" + fatorial);
+            Console.ReadKey();
+        }
+    }
+}
+
