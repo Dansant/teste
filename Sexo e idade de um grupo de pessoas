@@ -57,7 +57,7 @@ namespace ConsoleApplication24
                     if (idade <= 0)
                     {
                         Console.WriteLine("Sua idade deve ser negativa");
-                        Console.WriteLine("Informe a sua idade (homem)");
+                        Console.WriteLine("Informe a sua idade (mulher)");
                         idade = double.Parse(Console.ReadLine());
                     }
                     var--;
