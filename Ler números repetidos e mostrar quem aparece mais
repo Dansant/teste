@@ -1,0 +1,114 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numero=0;
+            int rep0 = 0;
+            int rep1 = 0;
+            int rep2 = 0;
+            int rep3 = 0;
+            int rep4 = 0;
+            int rep5 = 0;
+            int rep6 = 0;
+            int rep7 = 0;
+            int rep8 = 0;
+            int rep9 = 0;
+            int repm=0;
+                while (numero != -1)
+                {
+                    Console.WriteLine("(APERTE -1 PARA ANTES DO NONO NÚMERO)\n Digite um número entre 0 e 9:");
+                    numero = int.Parse(Console.ReadLine());
+                if (numero == 0)
+                {
+                    rep0++;
+                }
+                if (numero == 1)
+                {
+                    rep1++;
+                }
+                if (numero == 2)
+                {
+                    rep2++;
+                }
+                if (numero == 3)
+                {
+                    rep3++;
+                }
+                if (numero == 4)
+                {
+                    rep4++;
+                }
+                if (numero == 5)
+                {
+                    rep5++;
+                }
+                if (numero == 6)
+                {
+                    rep6++;
+                }
+                if (numero == 7)
+                {
+                    rep7++;
+                }
+                if (numero == 8)
+                {
+                    rep8++;
+                }
+                if (numero == 9)
+                {
+                    rep9++;
+                }
+                if(rep0>rep1&& rep0 > rep2&& rep0 > rep3&& rep0 > rep4&& rep0 > rep5&& rep0>rep6&& rep0>rep7&& rep0>rep8&&rep0>rep9)
+                {
+                    repm = 0;
+                }
+                if (rep1 > rep0 && rep1 > rep2 && rep1 > rep3 && rep1 > rep4 && rep1 > rep5 && rep1 > rep6 && rep1 > rep7 && rep1 > rep8 && rep1 > rep9)
+                {
+                    repm = 1;
+                }
+                if (rep2 > rep0 && rep2 > rep1 && rep2 > rep3 && rep2 > rep4 && rep2 > rep5 && rep2 > rep6 && rep2 > rep7 && rep2 > rep8 && rep2 > rep9)
+                {
+                    repm = 2;
+                }
+                if (rep3 > rep1 && rep3 > rep2 && rep3 > rep0 && rep3 > rep4 && rep3 > rep5 && rep3 > rep6 && rep3 > rep7 && rep3 > rep8 && rep3 > rep9)
+                {
+                    repm = 3;
+                }
+                if (rep4 > rep1 && rep4 > rep2 && rep4 > rep3 && rep4 > rep0 && rep4 > rep5 && rep4 > rep6 && rep4 > rep7 && rep4 > rep8 && rep4 > rep9)
+                {
+                    repm = 4;
+                }
+                if (rep5 > rep1 && rep5 > rep2 && rep5 > rep3 && rep5 > rep4 && rep5 > rep0 && rep5 > rep6 && rep5 > rep7 && rep5 > rep8 && rep5 > rep9)
+                {
+                    repm = 5;
+                }
+                if (rep6 > rep1 && rep6 > rep2 && rep6 > rep3 && rep6 > rep4 && rep6 > rep5 && rep6 > rep0 && rep6 > rep7 && rep6 > rep8 && rep6 > rep9)
+                {
+                    repm = 6;
+                }
+                if (rep7 > rep1 && rep7 > rep2 && rep7 > rep3 && rep7 > rep4 && rep7 > rep5 && rep7 > rep6 && rep7 > rep0 && rep7 > rep8 && rep7 > rep9)
+                {
+                    repm = 7;
+                }
+                if (rep8 > rep1 && rep8 > rep2 && rep8 > rep3 && rep8 > rep4 && rep8 > rep5 && rep8 > rep6 && rep8 > rep7 && rep8 > rep0 && rep8 > rep9)
+                {
+                    repm = 8;
+                }
+                if (rep9 > rep1 && rep9 > rep2 && rep9 > rep3 && rep9 > rep4 && rep9 > rep5 && rep9 > rep6 && rep9 > rep7 && rep9 > rep8 && rep9 > rep0)
+                {
+                    repm = 9;
+                }
+            }
+            Console.WriteLine("O número que apareceu mais vezes foi o:{0}",repm);
+            Console.ReadKey();
+        }
+    }
+}
