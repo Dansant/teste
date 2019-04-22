@@ -11,7 +11,7 @@ namespace ConsoleApplication10
         static void Main(string[] args)
         {
             int numero;
-            Console.WriteLine("Entre com o número que será fatorado:");
+            Console.WriteLine("Entre com o número que será feito o fatorial:");
             numero = int.Parse(Console.ReadLine());
             int fatorial;
             fatorial = numero;
