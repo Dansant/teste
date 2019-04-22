@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication24
+namespace ConsoleApplication10
 {
     class Program
     {
@@ -13,38 +13,39 @@ namespace ConsoleApplication24
             double numero;
             double fatorial;
             double i;
-            double numb;
-            double fat;
-            double p;
             double comb = 0;
-            double n;
-            double fat2;
-            double nn;
-            Console.WriteLine("Entre com o primeiro número da combinação:");
-            numero = double.Parse(Console.ReadLine());
+            double fatorial2;
+            double p;
+            double loop;
+            double z;
+            double fatorial3;
+            double loop2;
+            Console.WriteLine("LEMBRE-SE: Cn,p = n!/p!(n-p)!");
+            Console.WriteLine("Entre com o n da combinação:");
+            numero = int.Parse(Console.ReadLine());
             fatorial = numero;
             for (i = numero - 1; i > 1; i--)
             {
                 fatorial *= i;
             }
-            Console.WriteLine("Entre com o segundo número da combinação:");
-            numb = double.Parse(Console.ReadLine());
-            fat = numb;
-            for (p = numb - 1; p > 1; p--)
+            Console.WriteLine("Entre com o P da combinação");
+            p = int.Parse(Console.ReadLine());
+            fatorial2 = p;
+            for (loop = p - 1; loop > 1; loop--)
             {
-                fat *= p;
+                fatorial2 *= loop;
             }
-            n = numero - numb;
-            fat2 = n;
-            for (nn = n - 1; nn > 1; nn--)
+            z = numero - p;
+            fatorial3 = z;
+            for (loop2 = z - 1; loop2 > 1; loop2--)
             {
-                fat2 *= nn;
+                fatorial3 *= loop2;
             }
-            comb = fatorial/(fat*fat2);
-            Console.WriteLine("Valor da primeira:" + fatorial);
-            Console.WriteLine("valor da segunda:"+fat);
-            Console.WriteLine("Valor da terceira:" + fat2);
-            Console.WriteLine("VALOR DA COMBINAÇÃO:" + comb);
+            comb = fatorial / (fatorial2 * fatorial3);
+            Console.WriteLine("Valor total do fatorial:" + fatorial);
+            Console.WriteLine("Valor total do fatorial 2:" + fatorial2);
+            Console.WriteLine("Valor total do fatorial 3:" + fatorial3);
+            Console.WriteLine("Valor total da combinação simples:" + comb);
             Console.ReadKey();
         }
     }
