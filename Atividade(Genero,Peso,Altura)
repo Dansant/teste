@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int pessoas;
+            double altura;
+            double peso;
+            double soma1m = 0;
+            double soma2h = 0;
+            double somah = 0;
+            double somam = 0;
+            double media1m = 0;
+            double media2h = 0;
+            double maiorp = double.MinValue;
+            double menora = double.MaxValue;
+            int genero;
+            int homem=0;
+            int mulher=0;
+            Console.WriteLine("Informe a quantidade de pessoas que tem no grupo:");
+            pessoas = int.Parse(Console.ReadLine());
+            for (pessoas = pessoas; pessoas > 0; pessoas--)
+            {
+                Console.WriteLine("Digite 1 para MASCULINO e 2 para FEMININO");
+                genero = int.Parse(Console.ReadLine());
+                Console.WriteLine("Informe seu peso:(LEMBRE-SE QUE O PESO É POSITIVO)");
+                peso = double.Parse(Console.ReadLine());
+                Console.WriteLine("Informe sua altura(LEMBRE-SE QUE A ALTURA É POSITIVA)");
+                altura = double.Parse(Console.ReadLine());
+                if (peso>0 && peso > maiorp)
+                {
+                    maiorp = peso;
+                }
+                if (altura>0 && altura < menora)
+                {
+                    menora = altura;
+                }
+                if (genero == 1)
+                {
+                    homem++;
+                    somah = homem;
+                    soma2h += altura;
+                }
+                if (genero == 2)
+                {
+                    mulher++;
+                    somam = mulher;
+                    soma1m += peso;
+                }
+            }
+            media2h = soma2h / somah;
+            media1m = soma1m / somam;
+            Console.WriteLine("A media dos pesos das mulheres é:{0} KG", media1m);
+            Console.WriteLine("A media das alturas dos homens é:{0} M", media2h);
+            Console.WriteLine("O maior peso do grupo é:{0} KG", maiorp);
+            Console.WriteLine("A menor altura do grupo é:{0} M", menora);
+            Console.WriteLine("Esse grupo tem {0} Homens e {1} Mulheres", homem, mulher);
+            Console.ReadKey();
+        }
+    }
+}
