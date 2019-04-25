@@ -1,0 +1,103 @@
+int carroVermelho = 13; 
+int carroAmarelo = 12; 
+int carroVerde = 11; 
+int pessoaVerde = 2;
+int pessoaVermelho = 3; 
+int botao = 7;
+int tempoAtravessando = 5000;
+unsigned long mudaTempo;
+void setup() {
+  //  put your setup code here, to run once:
+   // Inicializamos o temporizador aqui
+  // Observe que o "contador" foi atrelado
+  // a váriavel que setamos acima.
+  
+  mudaTempo = millis();
+  
+  /* 
+   *  Aqui nós configuramos alguns dos pinos da nossa placa Arduino como "saídas" e outros comos "entradas".
+   *  Dica: Isso significa que alguns pinos "mostrarão" o resultado enquanto outro 
+   *  atuará como um sensor, "captando informações" do mundo exterior.
+   *  
+   */
+  
+  pinMode(carroVermelho, OUTPUT);
+  pinMode(carroAmarelo, OUTPUT);
+  pinMode(carroVerde, OUTPUT);
+  pinMode(pessoaVermelho, OUTPUT);
+  pinMode(pessoaVerde, OUTPUT);
+  pinMode(botao, INPUT);
+  
+  //Começamos deixando acesas as luzes: verde (referente aos veículos) e vermelha (referente aos pedestres)
+  //OBS: O comando "Serial.begin" utilizado abaixo serve neste caso como uma espécie de "DEBUG", isto porque
+  //com este comando somos capazes de "acompanhar" o funcionamento do circuito pelo Painel Serial da IDE do Arduino!
+  
+  digitalWrite(carroVerde, HIGH);
+  digitalWrite(pessoaVermelho, HIGH);
+  digitalWrite(carroVermelho, LOW);
+  digitalWrite(carroAmarelo, LOW);
+  digitalWrite(pessoaVerde, LOW);
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ // Inicializamos o temporizador aqui
+  // Observe que o "contador" foi atrelado
+  // a váriavel que setamos acima.
+  
+  mudaTempo = millis();
+  
+  /* 
+   *  Aqui nós configuramos alguns dos pinos da nossa placa Arduino como "saídas" e outros comos "entradas".
+   *  Dica: Isso significa que alguns pinos "mostrarão" o resultado enquanto outro 
+   *  atuará como um sensor, "captando informações" do mundo exterior.
+   *  
+   */
+  
+  pinMode(carroVermelho, OUTPUT);
+  pinMode(carroAmarelo, OUTPUT);
+  pinMode(carroVerde, OUTPUT);
+  pinMode(pessoaVermelho, OUTPUT);
+  pinMode(pessoaVerde, OUTPUT);
+  pinMode(botao, INPUT);
+  
+  //Começamos deixando acesas as luzes: verde (referente aos veículos) e vermelha (referente aos pedestres)
+  //OBS: O comando "Serial.begin" utilizado abaixo serve neste caso como uma espécie de "DEBUG", isto porque
+  //com este comando somos capazes de "acompanhar" o funcionamento do circuito pelo Painel Serial da IDE do Arduino!
+  
+  digitalWrite(carroVerde, HIGH);
+  digitalWrite(pessoaVermelho, HIGH);
+  digitalWrite(carroVermelho, LOW);
+  digitalWrite(carroAmarelo, LOW);
+  digitalWrite(pessoaVerde, LOW);
+  Serial.begin(9600);
+
+}
+void mudaLuzes() {
+  digitalWrite(carroVerde, LOW);    // A luz verde é desligada
+  digitalWrite(carroAmarelo, HIGH); // A luz amarela vai ligar por 4 segundos
+  delay(4000); 
+  
+  digitalWrite(carroAmarelo, LOW); // A luz amarela vai desligar
+  digitalWrite(carroVermelho, HIGH); // A luz vermelha vai ligar por 5 segundos
+
+  digitalWrite(pessoaVermelho, LOW);
+  digitalWrite(pessoaVerde, HIGH);
+  delay(tempoAtravessando);
+  
+  // Pisca a luz verde dos PEDESTRES
+  for (int x=0; x<10; x++) {
+    digitalWrite(pessoaVerde, LOW);
+    delay(160);
+    digitalWrite(pessoaVerde, HIGH);
+    delay(160);
+  }
+  digitalWrite(pessoaVerde, LOW);
+  digitalWrite(carroVermelho, LOW);
+  digitalWrite(pessoaVermelho, HIGH);
+  digitalWrite(carroVerde, HIGH);
+
+  mudaTempo = millis();
+ }
