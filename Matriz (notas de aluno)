@@ -1,0 +1,17 @@
+Console.WriteLine("Informe o número de turmas: ");
+int num_turmas = int.Parse(Console.ReadLine());
+string[][] turmas = new string[num_turmas][];
+for (int i = 0; i < num_turmas; i++ )
+{
+    Console.WriteLine("Informe a quantidade de alunos da turma {0}:", i);
+    int num_alunos = int.Parse(Console.ReadLine());
+    turmas[i] = new string[num_alunos];
+    for (int j = 0; j < num_alunos;j++ )
+    {
+        Console.WriteLine("Informe o nome do aluno {0}:", j);
+        turmas[i][j] = Console.ReadLine();
+    }
+}
+
+
+Read more: http://www.linhadecodigo.com.br/artigo/3444/arrays-em-csharp-teoria-e-pratica.aspx#ixzz5maavTHBP
