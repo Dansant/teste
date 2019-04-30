@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int linha=0;
+            int coluna=0;
+            int valor = 1;
+            int i = 0;
+            int j = 0;
+            
+            Console.WriteLine("Insira o número de linhas:");
+            linha = int.Parse(Console.ReadLine());
+            Console.WriteLine("Insira o número de colunas");
+            coluna = int.Parse(Console.ReadLine());
+            int[,] matriz = new int[linha, coluna];
+            for ( i = 0; i < linha; i++)
+            {
+                for ( j = 0; j < coluna; j++)
+                {
+                    matriz[i, j] = valor;
+                    valor++;
+                }
+            }
+            for (i = 0; i < linha; i++)
+            {
+                for (j = 0; j < coluna; j++)
+                {
+                    Console.Write(matriz[i,j]+"\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\nPressione qualquer botão para fechar");
+            Console.ReadKey();
+        }
+    }
+}
