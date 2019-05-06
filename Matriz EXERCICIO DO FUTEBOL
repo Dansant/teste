@@ -21,7 +21,7 @@ namespace ConsoleApplication3
             proced = int.Parse(Console.ReadLine());
             while (proced < 0)
             {
-                Console.WriteLine("INVALIDO O NÚMERO RESPECTIVO DO TIME DEVE SER POSITIVO\nDigite o número do respetivo time que você deseja saber a media de gols");
+                Console.WriteLine("Inválido, o número do respectivo time deve ser positivo\nDigite o número do respetivo time que você deseja saber a media de gols".ToUpper());
                 proced = int.Parse(Console.ReadLine());
             }
             Console.WriteLine("TABELA DE GOLS DO {0}", nome[proced]);
@@ -46,14 +46,14 @@ namespace ConsoleApplication3
             partidas = int.Parse(Console.ReadLine());
             while (partidas <= 0)
             {
-                Console.WriteLine("INVALIDO O NÚMERO DE PARTIDAS DEVE SER POSITIVO \nInforme o número de partidas");
+                Console.WriteLine("Inválido, o número de partidas deve ser positivo \nInforme o número de partidas".ToUpper());
                 partidas = int.Parse(Console.ReadLine());
             }
             Console.WriteLine("Informe o número de times");
             equipes = int.Parse(Console.ReadLine());
             while (equipes <= 0)
             {
-                Console.WriteLine("INVALIDO O NÚMERO DE EQUIPES DEVE SER POSITIVO \nInforme o número de partidas");
+                Console.WriteLine("Inválido, o número de times deve ser positivo \nInforme o número de partidas".ToUpper());
                 equipes = int.Parse(Console.ReadLine());
             }
             string[] nome = new string[equipes];
@@ -61,7 +61,7 @@ namespace ConsoleApplication3
             for(int a = 0; a < equipes; a++)
             {
                 Console.WriteLine("Digite o nome do time {0}:", a);
-                time = Console.ReadLine();
+                time = Console.ReadLine().ToUpper();
                 nome[a] = time;
             }
             for(i=0; i < gol.GetLength(0); i++)
