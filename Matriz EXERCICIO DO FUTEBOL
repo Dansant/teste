@@ -17,8 +17,14 @@ namespace ConsoleApplication3
             double media = 0;
             double soma = 0;
             int proced;
-            Console.WriteLine("Digite o número do respetivo time que você deseja saber a media de gols");
+            Console.WriteLine("\nDigite o número do respetivo time que você deseja saber a media de gols");
             proced = int.Parse(Console.ReadLine());
+            while (proced < 0)
+            {
+                Console.WriteLine("INVALIDO O NÚMERO RESPECTIVO DO TIME DEVE SER POSITIVO\nDigite o número do respetivo time que você deseja saber a media de gols");
+                proced = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("TABELA DE GOLS DO {0}", nome[proced]);
                 for (j = 0; j < gol.GetLength(1); j++)
                 {
                     Console.Write(gol[proced, j] + "\t");
@@ -27,7 +33,7 @@ namespace ConsoleApplication3
                 }
                 Console.WriteLine();
             media = soma /valor;
-            Console.WriteLine("A media de gols do time {0} foi de {1}",nome[proced],media);
+            Console.WriteLine("\nA media de gols do time {0} foi de {1}",nome[proced],media);
         }
         static void Main(string[] args)
         {
@@ -38,8 +44,18 @@ namespace ConsoleApplication3
             int i, j;
             Console.WriteLine("Informe o número de partidas");
             partidas = int.Parse(Console.ReadLine());
+            while (partidas <= 0)
+            {
+                Console.WriteLine("INVALIDO O NÚMERO DE PARTIDAS DEVE SER POSITIVO \nInforme o número de partidas");
+                partidas = int.Parse(Console.ReadLine());
+            }
             Console.WriteLine("Informe o número de times");
             equipes = int.Parse(Console.ReadLine());
+            while (equipes <= 0)
+            {
+                Console.WriteLine("INVALIDO O NÚMERO DE EQUIPES DEVE SER POSITIVO \nInforme o número de partidas");
+                equipes = int.Parse(Console.ReadLine());
+            }
             string[] nome = new string[equipes];
             int[,] gol = new int[equipes, partidas];
             for(int a = 0; a < equipes; a++)
@@ -56,6 +72,7 @@ namespace ConsoleApplication3
                     valor++;
                 }
             }
+            Console.WriteLine("TABELA DE GOLS");
             for (i = 0; i < gol.GetLength(0); i++)
             {
                 for (j = 0; j < gol.GetLength(1); j++)
