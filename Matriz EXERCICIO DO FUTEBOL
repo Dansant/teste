@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        //times = NOME de um time;
+        //equipes = número de equipes;
+        static void Media(string[] nome, int[,]gol, string time)
+        {
+            int j;
+            int valor = 0;
+            double media = 0;
+            double soma = 0;
+            int proced;
+            Console.WriteLine("Digite o número do respetivo time que você deseja saber a media de gols");
+            proced = int.Parse(Console.ReadLine());
+                for (j = 0; j < gol.GetLength(1); j++)
+                {
+                    Console.Write(gol[proced, j] + "\t");
+                    soma += j;
+                valor++;
+                }
+                Console.WriteLine();
+            media = soma /valor;
+            Console.WriteLine("A media de gols do time {0} foi de {1}",nome[proced],media);
+        }
+        static void Main(string[] args)
+        {
+            int valor=0;
+            int equipes;
+            int partidas;
+            string time="";
+            int i, j;
+            Console.WriteLine("Informe o número de partidas");
+            partidas = int.Parse(Console.ReadLine());
+            Console.WriteLine("Informe o número de times");
+            equipes = int.Parse(Console.ReadLine());
+            string[] nome = new string[equipes];
+            int[,] gol = new int[equipes, partidas];
+            for(int a = 0; a < equipes; a++)
+            {
+                Console.WriteLine("Digite o nome do time {0}:", a);
+                time = Console.ReadLine();
+                nome[a] = time;
+            }
+            for(i=0; i < gol.GetLength(0); i++)
+            {
+                for (j = 0; j < gol.GetLength(1); j++)
+                {
+                    gol[i, j] = valor;
+                    valor++;
+                }
+            }
+            for (i = 0; i < gol.GetLength(0); i++)
+            {
+                for (j = 0; j < gol.GetLength(1); j++)
+                {
+                    Console.Write(gol[i,j]+"\t");
+                }
+                Console.WriteLine();
+            }
+            Media(nome, gol, time);
+            Console.ReadLine();
+        }
+    }
+}
