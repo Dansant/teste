@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppplication3
+{
+    class Program
+    {
+
+        static void Imprime(int line,int column)
+        {
+            int x = 2;
+            int y = 2;
+            int i, j;
+            int valor = 1;
+            while (line >= x && column >= y)
+            {
+                int[,] matriz = new int[x, y];
+                for (i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (j = 0; j < matriz.GetLength(1); j++)
+                {
+                    matriz[i, j] = valor;
+                    valor++;
+                }
+            }
+            for (i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (j = 0; j < matriz.GetLength(1); j++)
+                {
+                    Console.Write(matriz[i, j]+"\t");
+                }
+                Console.WriteLine();
+            }
+                Console.WriteLine();
+                x++;
+                y++;
+            }
+        }
+        static void Main(string[] args)
+        {
+            int line;
+            int column;
+            Console.WriteLine("Digite o número de linhas:");
+            line = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o número de colunas");
+            column = int.Parse(Console.ReadLine());
+            Imprime(line, column);
+            Console.ReadKey();
+        }
+    }
+}
