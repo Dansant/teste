@@ -8,12 +8,10 @@ namespace ConsoleApplication3
 {
     class Program
     {
-        //times = NOME de um time;
-        //equipes = número de equipes;
         static void Media(string[] nome, int[,]gol, string time)
         {
             int j;
-            int valor = 0;
+            int valor=0;
             double media = 0;
             double soma = 0;
             int proced;
@@ -25,11 +23,11 @@ namespace ConsoleApplication3
                 proced = int.Parse(Console.ReadLine());
             }
             Console.WriteLine("TABELA DE GOLS DO {0}", nome[proced]);
-                for (j = 0; j < gol.GetLength(1); j++)
+            for (j = 0; j < gol.GetLength(1); j++)
                 {
                     Console.Write(gol[proced, j] + "\t");
-                    soma += j;
-                valor++;
+                    soma += gol[proced,j];
+                    valor++;
                 }
                 Console.WriteLine();
             media = soma /valor;
