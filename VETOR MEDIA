@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int count = 0;
+            int[] vet = new int[10];
+            int numb=0;
+            double media;
+            for(int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Digite um valor inteiro");
+                numb = int.Parse(Console.ReadLine());
+                vet[i] = numb;
+                count += numb;
+            }
+            media = count / 10;
+            Console.WriteLine("A média foi de {0}", media);
+            Console.WriteLine("Os números abaixo da média são:");
+            for (int i = 0; i < 10; i++)
+            {
+                if (vet[i] < media)
+                {
+                    Console.WriteLine(vet[i]);
+                }
+
+            }
+            Console.WriteLine("Os números acima da média são");
+            for (int i = 0; i < 10; i++)
+            {
+                if (vet[i] >= media)
+                {
+                    Console.WriteLine(vet[i]);
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
