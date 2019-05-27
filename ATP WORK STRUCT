@@ -1,0 +1,107 @@
+using System;
+using System.IO;
+namespace ATPWORK
+{
+    class Program
+    {
+        public struct Funcionarios
+        {
+            public int matricula;
+            public string nome;
+            public int cpf;
+            public double salario;
+            public Funcionarios(int m, string n, int c, double s)
+            {
+                matricula = m;
+                nome = n;
+                cpf = c;
+                salario = s;
+            }
+        }
+        static void Inserir(Funcionarios[]func)
+        {
+            int n = (func.Length)-1;
+            int contador = 0;
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Funcionários" + ".txt";
+            StreamWriter gravador = new StreamWriter(namefile, true);
+            for(int j = 0; j < func.Length; j++)    
+            {
+
+                    gravador.WriteLine(func[j].matricula + "; " + func[j].nome + "; " + func[j].cpf + "; " + func[j].salario + " Reais.");
+                    gravador.WriteLine("_______________________________________________________________________________________________________________________________");
+            }
+            gravador.Close();
+        }
+        static void Listar(Funcionarios[]func)
+        {
+            string text = System.IO.File.ReadAllText(@"C:\Users\danie\OneDrive\Área de Trabalho\Funcionários.txt");
+            System.Console.WriteLine(text);
+        }
+        static bool Pesquisar(int mat)
+        {
+            if (!File.Exists(@"C:\Users\danie\OneDrive\Área de Trabalho\Funcionários.txt"))
+            {
+                Console.WriteLine("Arquivo não encontrado");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        static void Main(string[] args)
+        {
+            int a;
+            int mat;
+            int count;
+            int m;
+            string n;
+            int c;
+            double s;
+            Console.WriteLine("Insira a quantidade de matrículas que você deseja cadastrar:");
+            count = int.Parse(Console.ReadLine());
+            while (count < 0)
+            {
+                Console.WriteLine("NÚMERO INVALIDO\tInsira a quantidade de matrículas que você deseja cadastrar:");
+                count = int.Parse(Console.ReadLine());
+            }
+            Funcionarios[] func = new Funcionarios[count];
+            for(int i = 0;  i < count; i++)
+            {
+                Console.WriteLine("Insira o número da sua matrícula:");
+                m = int.Parse(Console.ReadLine());
+                while (m < 0)
+                {
+                    Console.WriteLine("NÚMERO INVALIDO\tInsira o número da sua matrícula:");
+                    m = int.Parse(Console.ReadLine());
+                }
+                Console.WriteLine("Insira seu nome:");
+                n = Console.ReadLine();
+                Console.WriteLine("Insira o número do seu CPF:");
+                c = int.Parse(Console.ReadLine().ToString());
+                while (c < 0)
+                {
+                    Console.WriteLine("NÚMERO INVALIDO\tInsira o número do seu CPF:");
+                    c = int.Parse(Console.ReadLine().ToString());
+
+                }
+                Console.WriteLine("Insira o valor do seu salário:");
+                s = double.Parse(Console.ReadLine());
+                while (s < 0)
+                {
+                    Console.WriteLine("NÚMERO INVALIDO\tInsira o valor do seu salário:");
+                    s = double.Parse(Console.ReadLine());
+                }
+                func[i] = new Funcionarios(m, n, c, s);
+            }
+            Inserir(func);
+            Console.WriteLine("\nDados do arquivo:");
+            Listar(func);
+            Console.WriteLine("Insira a matrícula que você deseja pesquisar a existência:");
+            mat = int.Parse(Console.ReadLine());
+            Pesquisar(mat);
+            Console.WriteLine("Processo finalizado.");
+            Console.ReadKey();
+        }
+    }
+}
