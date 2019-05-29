@@ -93,7 +93,7 @@ namespace ATPWORK
             Listar(func);
             Console.WriteLine("Insira a matrícula que você deseja pesquisar a existência:");
             mat = int.Parse(Console.ReadLine());
-            Pesquisar(mat, func);
+            Pesquisar(mat);
             Console.WriteLine("Processo finalizado.");
             Console.ReadKey();
         }
