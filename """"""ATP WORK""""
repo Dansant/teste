@@ -37,7 +37,16 @@ namespace ATPWORK
         }
         static bool Pesquisar(int mat)
         {
-            return true;
+            bool flag;
+            StreamReader reader = new StreamReader(@"C:\Users\danie\OneDrive\Área de Trabalho\Funcionários.txt");
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+                return true;
+            }
+            reader.Close();
+            return false;
         }
         static void Main(string[] args)
         {
@@ -47,7 +56,6 @@ namespace ATPWORK
             string n;
             string c;
             double s;
-            bool flag;
             Console.WriteLine("Insira a quantidade de matrículas que você deseja cadastrar:");
             count = int.Parse(Console.ReadLine());
             int[] matriculass = new int[count];
@@ -85,7 +93,7 @@ namespace ATPWORK
             Listar(func);
             Console.WriteLine("Insira a matrícula que você deseja pesquisar a existência:");
             mat = int.Parse(Console.ReadLine());
-            Pesquisar(mat);
+            Pesquisar(mat, func);
             Console.WriteLine("Processo finalizado.");
             Console.ReadKey();
         }
