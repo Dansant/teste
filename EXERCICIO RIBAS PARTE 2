@@ -1,0 +1,273 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numb;
+            Console.WriteLine("Digite o número do exercicio:");
+            numb = int.Parse(Console.ReadLine());
+            switch(numb)
+            {
+                case 1:
+                    double[,] matriz = new double[2, 3];
+                    double[,] matrizb = new double[2, 3];
+                    double[,] matrizc = new double[2, 3];
+                    double[,] matrizd = new double[2, 3];
+                    double[,] matrize = new double[2, 3];
+                    double number;
+                    for (int i=0; i < matriz.GetLength(0); i++)
+                    {
+                        for(int j =0; j < matriz.GetLength(1); j++)
+                        {
+                            Console.WriteLine("Informe um número(Matriz1):");
+                            number = double.Parse(Console.ReadLine());
+                            matriz[i, j] = number;
+                        }
+                    }
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            Console.WriteLine("Informe um número(Matriz2):");
+                            number = double.Parse(Console.ReadLine());
+                            matrizb[i, j] = number;
+                        }
+                    }
+
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            matrizc[i, j] = matriz[i,j]+matrizb[i,j];
+                        }
+                    }
+
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            matrizd[i, j] = (2*matriz[i, j]) - matrizb[i, j];
+                        }
+                    }
+
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            matrize[i, j] =(3*matrizc[i, j]) - matrizd[i, j];
+                        }
+                    }
+                    Console.WriteLine("Matriz A:");
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            Console.Write(matriz[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Matriz B:");
+
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            Console.Write(matrizb[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Matriz C:");
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            Console.Write(matrizc[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Matriz D:");
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            Console.Write(matrizd[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Matriz E:");
+                    for (int i = 0; i < matriz.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matriz.GetLength(1); j++)
+                        {
+                            Console.Write(matrize[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    break;
+                case 2:
+                    double[,] matrizg = new double[3, 3];
+                    double numero;
+                    double soma = 0;
+                    double plus;
+                    double minus;
+                    for (int i = 0; i < matrizg.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matrizg.GetLength(1); j++)
+                        {
+                            Console.WriteLine("Informe um número(MatrizG):");
+                            numero = double.Parse(Console.ReadLine());
+                            matrizg[i, j] = numero;
+                            soma += numero;
+                        }
+                    }
+                    plus = matrizg[0, 0];
+                    minus = matrizg[0, 0];
+
+                    for (int i = 0; i < matrizg.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matrizg.GetLength(1); j++)
+                        {
+                            if (matrizg[i, j] > plus)
+                            {
+                                plus = matrizg[i, j];
+                            }
+                            else if (matrizg[i, j] < minus)
+                            {
+                                minus = matrizg[i, j];
+                            }
+                        }
+                    }
+                    for (int i = 0; i < matrizg.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matrizg.GetLength(1); j++)
+                        {
+                            Console.Write(matrizg[i,j]+"\t");
+
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Elementos da diagonal principal:");
+                    for (int i = 0; i < matrizg.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matrizg.GetLength(1); j++)
+                        {
+                            if (i == j)
+                            {
+                                Console.Write(matrizg[i, j] + "\t");
+                            }
+                        }
+                        Console.WriteLine();
+                    }
+                    for (int i = 0; i < matrizg.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matrizg.GetLength(1); j++)
+                        {
+                                if (matrizg[i, j] == plus)
+                                {
+                                    Console.WriteLine("Maior valor:" + plus + ", na posição {0},{1}",i,j);
+                                }
+                        }
+                    }
+                    for (int i = 0; i < matrizg.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matrizg.GetLength(1); j++)
+                        {
+                                if (matrizg[i, j] == minus)
+                                {
+                                    Console.WriteLine("Menor valor:" + minus + ", na posição {0},{1}", i, j);
+                                }
+                        }
+                    }
+                    Console.WriteLine("Soma de todos os números:" + soma);
+                    break;
+                case 3:
+                    double[,] arraya = new double[4, 4];
+                    double[,] arrayb = new double[4, 4];
+                    double[,] arrayc = new double[4, 4];
+                    double somasa = 0;
+                    double mediasa = 0;
+                    double jorge = 0;
+                    double cleber = 0;
+                    for (int i = 0; i < arraya.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < arraya.GetLength(1); j++)
+                        {
+                            arraya[i, j] = (2 * i) + (j);
+                            somasa += arraya[i, j];
+                        }
+                    }
+                    mediasa = somasa / 16;
+                    for (int i = 0; i < arrayb.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < arrayb.GetLength(1); j++)
+                        {
+                            arrayb[i, j] = (i) + (3 * j);
+                            jorge += arrayb[i, j];
+                        }
+                    }
+                    cleber = jorge / 16;
+                    Console.WriteLine("Matriz A:");
+                    for (int i = 0; i < arraya.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < arraya.GetLength(1); j++)
+                        {
+                            Console.Write(arraya[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Media dos elementos de A:" + mediasa);
+                    Console.WriteLine("Matriz B:");
+                    for (int i = 0; i < arraya.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < arraya.GetLength(1); j++)
+                        {
+                            Console.Write(arrayb[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Media dos elementos de B:" + cleber);
+                    for (int i = 0; i < arrayb.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < arrayb.GetLength(1); j++)
+                        {
+                            arrayc[i, j] = arraya[i, j] + arrayb[i, j];
+                        }
+                    }
+                    Console.WriteLine("Matriz C:");
+                    for (int i = 0; i < arrayb.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < arrayb.GetLength(1); j++)
+                        {
+                            Console.Write(arrayc[i, j] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Elementos da diagonal principal de C:");
+                    for (int i = 0; i < arrayb.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < arrayb.GetLength(1); j++)
+                        {
+                            if (i == j)
+                            {
+                                Console.Write(arrayc[i, j] + "\t");
+                            }
+                        }
+                        Console.WriteLine();
+                    }
+                    break;
+                default:
+
+                    break;
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
