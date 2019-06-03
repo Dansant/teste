@@ -1,0 +1,100 @@
+using System;
+using System.IO;
+namespace ConsoleApp7
+{
+    public struct Vestibulano
+    {
+        public int Inscrição;
+        public string Nome;
+        public double Nota;
+        public int Curso;
+        
+            public Vestibulano(int inscrito, string nome, double nota, int faculdade)
+        {
+            Inscrição = inscrito;
+            Nome = nome;
+            Nota = nota;
+            Curso = faculdade;
+        }
+    }
+    class Program
+    {
+        static void Confere()
+        {
+
+        }
+        static void grava(Vestibulano[] x)
+        {
+            string namefile = "vestibular" + ".txt";
+            StreamWriter gravador = new StreamWriter(namefile, true);
+            for (int i=0; i < x.Length; i++)
+            {
+                gravador.WriteLine(x[i].Inscrição + ";" + x[i].Nome + ";" + x[i].Nota + ";" + x[i].Curso);
+            }
+        }
+        static void Main(string[] args)
+        {
+            int[] oportinudade = new int[2];
+            int alunos;
+            double nota;
+            int faculdade;
+            int vagas;
+            int inscrito;
+            string nome;
+            for(int j = 0; j < 2; j++)
+            {
+                Console.WriteLine("Informe o número de vagas:");
+                vagas = int.Parse(Console.ReadLine());
+                while (vagas < 0)
+                {
+                    Console.WriteLine("Quantidade de vagas inválida\nInforme o número de vagas:");
+                    vagas = int.Parse(Console.ReadLine());
+                }
+                oportinudade[j] = vagas;
+            }
+            Console.WriteLine("Informe o número de alunos que irá prestar vestibular:");
+            alunos = int.Parse(Console.ReadLine());
+            while (alunos < 0 || alunos > 100)
+            {
+                Console.WriteLine("QUANTIDADE INVÁLIDA\nInforme o número de alunos que irá prestar vestibular:");
+                alunos = int.Parse(Console.ReadLine());
+            }
+            Vestibulano[] facul = new Vestibulano[alunos];
+            //começa a validação dos alunos
+            for (int i=0; i < alunos; i++)
+            {
+                //nro de inscrição
+                Console.WriteLine("Informe o número de inscrição:");
+                inscrito = int.Parse(Console.ReadLine());
+                while (inscrito < 0)
+                {
+                    Console.WriteLine("Número de inscrição inválido\nInforme o número de inscrição:");
+                    inscrito = int.Parse(Console.ReadLine());
+                }
+                //nome
+                Console.WriteLine("Informe seu nome:");
+                nome = Console.ReadLine();
+                //nota
+                Console.WriteLine("Informe sua nota:");
+                nota = double.Parse(Console.ReadLine());
+                while (nota < 0 || nota > 100)
+                {
+                    Console.WriteLine("Nota inválida\nInforme sua nota:");
+                    nota = double.Parse(Console.ReadLine());
+                }
+                //opção de curso
+                Console.WriteLine("Dispomos de 2 cursos, Literatura e Engenharia da Computação\n Qual é a sua opção de curso?");
+                Console.WriteLine("Digite 1 para literatura e 2 para engenharia da computação");
+                faculdade = int.Parse(Console.ReadLine());
+                while (faculdade != 1 || faculdade != 2)
+                {
+                    Console.WriteLine("número inválido\n digite 1 para literatura e 2 para engenharia da computação".ToUpper());
+                    faculdade = int.Parse(Console.ReadLine());
+                }
+                // vetor de vestibulano
+                facul[i] = new Vestibulano(inscrito, nome, nota, faculdade);
+            }
+            Console.ReadKey();
+        }
+    }
+}
