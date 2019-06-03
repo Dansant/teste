@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,23 +19,32 @@ namespace ConsoleApplication3
             this.name = name;
             this.grade = grade;
         }
-        public string Name { get => name; set => name = name; }
-        public double Grade { get => grade; set => grade = grade; }
-        public void Aluno(People p)
+
+        public string Name { get => name; set => name = name=value; }
+        public double Grade { get => grade; set => grade = grade=value; }
+        public void Aluno(People[] x)
         {
-            Console.WriteLine(p.name+p.grade);
-        }
-        public void Gravar(int number, People p)
-        {
-            string namefile = "alunos" + ".txt";
-            StreamWriter gravando = new StreamWriter(namefile,false);
-            for(int i=0; i < number; i++)
+            for (int i = 0; i < x.Length; i++)
             {
-                gravando.WriteLine(p.name + ";" + p.grade);
+                Console.WriteLine("Nome:"+x[i].name+",nota:"+x[i].grade);
             }
+        }
+        public void Gravar(People[]x)
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Alunos" + ".txt";
+            StreamWriter gravando = new StreamWriter(namefile,true);
+            for(int i=0; i < x.Length; i++)
+            {
+                gravando.WriteLine(x[i].name + ";" + x[i].grade);
+            }
+            Console.WriteLine("Gravado com sucesso.");
             gravando.Close();
         }
-
+        public void Mostrar()
+        {
+            string text = File.ReadAllText(@"C:\Users\danie\OneDrive\Área de Trabalho\Alunos.txt");
+            System.Console.WriteLine(text);
+        }
     }
 
     class Program
@@ -48,15 +56,21 @@ namespace ConsoleApplication3
             int number;
             Console.WriteLine("Informe a quantidade de alunos:");
             number = int.Parse(Console.ReadLine());
-            Console.WriteLine("Insira um nome:");
-            aluno = Console.ReadLine();
-            Console.WriteLine("Insira a nota:");
-            nota = double.Parse(Console.ReadLine());
+            People[] x = new People[number];
             People p = new People();
-            p.Name = aluno;
-            p.Grade = nota;
+            for (int i = 0; i < number; i++)
+            {
+                Console.WriteLine("Insira um nome:");
+                aluno = Console.ReadLine();
+                Console.WriteLine("Insira a nota:");
+                nota = double.Parse(Console.ReadLine());
+                x[i] = new People(aluno, nota);
+            }
+            x[0].Aluno(x);
+            x[0].Gravar(x);
+            x[0].Mostrar();
+            Console.WriteLine("Aperte qualquer tecla para sair.");
             Console.ReadKey();
-            
         }
     }
 }
