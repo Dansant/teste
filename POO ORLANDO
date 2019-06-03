@@ -1,1 +1,62 @@
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace ConsoleApplication3
+{
+    class People
+    {
+        private string name;
+        private double grade;
+
+        public People()
+        {
+        }
+        public People(string name, double grade)
+        {
+            this.name = name;
+            this.grade = grade;
+        }
+        public string Name { get => name; set => name = name; }
+        public double Grade { get => grade; set => grade = grade; }
+        public void Aluno(People p)
+        {
+            Console.WriteLine(p.name+p.grade);
+        }
+        public void Gravar(int number, People p)
+        {
+            string namefile = "alunos" + ".txt";
+            StreamWriter gravando = new StreamWriter(namefile,false);
+            for(int i=0; i < number; i++)
+            {
+                gravando.WriteLine(p.name + ";" + p.grade);
+            }
+            gravando.Close();
+        }
+
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string aluno;
+            double nota;
+            int number;
+            Console.WriteLine("Informe a quantidade de alunos:");
+            number = int.Parse(Console.ReadLine());
+            Console.WriteLine("Insira um nome:");
+            aluno = Console.ReadLine();
+            Console.WriteLine("Insira a nota:");
+            nota = double.Parse(Console.ReadLine());
+            People p = new People();
+            p.Name = aluno;
+            p.Grade = nota;
+            Console.ReadKey();
+            
+        }
+    }
+}
