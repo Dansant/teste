@@ -194,6 +194,26 @@ namespace Trab_De_ATP
                     Console.WriteLine("Valor total do fatorial:" + fatorial);
                     break;
                 case 11:
+                    int[] morto = new int[8];
+                    int fat=0;
+                    int semcriatividade;
+                    int sono=0;
+                    for(int i=0; i < 8; i++)
+                    {
+                        Console.WriteLine("digite um numero:");
+                        semcriatividade = int.Parse(Console.ReadLine());
+                        fat = semcriatividade;
+                        for (int j=semcriatividade-1;j>1;j--)
+                        {
+                            fat *= j;
+                            morto[i] = fat;
+                        }
+                    }
+                    for(int i = 0; i < 8; i++)
+                    {
+                        sono += morto[i];
+                    }
+                    Console.WriteLine("Resultado= " + sono);
                     break;
                 case 12:
                     int counter=0;
@@ -228,22 +248,199 @@ namespace Trab_De_ATP
                     Console.WriteLine("Media={0}",receptor);
                     break;
                 case 13:
+                    bool bandeira = true;
+                    int memory;
+                    Console.WriteLine("Insira a quantidade de computadores:");
+                    memory = int.Parse(Console.ReadLine());
+                    int[] memoria = new int[memory];
+                    while (bandeira != false)
+                    {
+                        for (int i = 0; 0 < memory; i++)
+                        {
+                            Console.WriteLine("Insira a quantidade de memoria do computador:");
+                            memoria[i] = int.Parse(Console.ReadLine());
+                        }
+                        bandeira = false;
+                    }
+                    int meno = memoria[0];
+                    int maio = memoria[0];
+                    for (int i = 0; 0 < memory; i++)
+                    {
+                        if (memoria[i] > maio)
+                        {
+                            maio = memoria[i];
+                        }
+                        if (memoria[i] <meno)
+                        {
+                            meno = memoria[i];
+                        }
+                        Console.WriteLine("Maior: " + maio);
+                        Console.WriteLine("Menor: " + meno);
+                    }
                     break;
                 case 14:
+                    bool formula1=true;
+                    int slaves;
+                    int x;
+                    int casadas = 0;
+                    int superior=0;
+                    while (formula1 != false)
+                    {
+                        Console.WriteLine("Digite o número de funcionários:");
+                        slaves = int.Parse(Console.ReadLine());
+                        for(int i=0; i < slaves; i++)
+                        {
+                            Console.WriteLine("Digite 1 para homem e 2 para mulher:");
+                            x = int.Parse(Console.ReadLine());
+                            if (x == 2)
+                            {
+                                Console.WriteLine("Você é casada?");
+                                string decide = Console.ReadLine().ToLower();
+                                if (decide == "sim")
+                                {
+                                    casadas++;
+                                }
+                            }
+                            Console.WriteLine("Você tem curso superior?");
+                            string dec = Console.ReadLine().ToLower();
+                            if (dec == "sim")
+                            {
+                                superior++;
+                            }
+                        }
+                        formula1 = false;
+                    }
+                    Console.WriteLine("Tem {0} mulheres casadas.", casadas);
+                    Console.WriteLine("{0} funcionários tem curso superior.", superior);
                     break;
                 case 15:
+
                     break;
                 case 16:
+                    double cara = 0;
+                    double coroa = 0;
+                    double var = 0;
+                    double somap = 0;
+                    double somac = 0;
+                    double porcentagem;
+                    while (var != -1)
+                    {
+                        Console.WriteLine("Digite 1 para cara e 2 para coroa");
+                        var = double.Parse(Console.ReadLine());
+                        if (var == 1)
+                        {
+                            cara += var;
+                        }
+                        if (var == 2)
+                        {
+                            coroa += var - 1;
+                        }
+                        somap = cara;
+                        somac = coroa;
+                    }
+                    if (somap > somac)
+                    {
+                        Console.WriteLine("A maior ocorrência foi :Cara={0}", somap);
+                    }
+                    if (somap < somac)
+                    {
+                        Console.WriteLine("A maior ocorrência foi : Coroa={0}", somac);
+                    }
+                    porcentagem = somap + somac;
+                    Console.WriteLine();
+                    Console.WriteLine("Cara={0}", somap);
+                    Console.WriteLine("Cara={0}%", (100*somap/porcentagem));
+                    Console.WriteLine("Cara={0}", somac);
+                    Console.WriteLine("Coroa={0}%", (100*somac/porcentagem));
+                    Console.WriteLine("Digite qualquer coisa para sair");
+                    Console.ReadKey();
                     break;
                 case 17:
                     break;
                 case 18:
                     break;
                 case 19:
+                    double[] serial=new double[20];
+                    double bigger;
+                    double smaller;
+                    double plus = 0;
+                    double middle;
+                    double positive=0;
+                    double negative=0;
+                    for (int i = 0; i < 20; i++)
+                    {
+                        Console.WriteLine("Digite um número");
+                        serial[i] = double.Parse(Console.ReadLine());
+                        plus += serial[i];
+                    }
+                    bigger = serial[0];
+                    smaller = serial[0];
+                    middle = plus / 20;
+                    for (int i = 0; i < 20; i++)
+                    {
+                        if (serial[i] > bigger)
+                        {
+                            bigger = serial[i];
+                        }
+                        if (serial[i] < smaller)
+                        {
+                            smaller = serial[i];
+                        }
+                        if (serial[i] < 0)
+                        {
+                            negative++;
+                        }
+                        if (serial[i] > 0)
+                        {
+                            positive++;
+                        }
+                    }
+                    Console.WriteLine("Maior= {0}",bigger);
+                    Console.WriteLine("Menor= {0}",smaller);
+                    Console.WriteLine("Média= {0}",middle);
+                    Console.WriteLine("Tem {0} positivos",positive);
+                    Console.WriteLine("Tem {0} negativos",negative);
                     break;
                 case 20:
+                    double[] notinha = new double[15];
+                    double[] notinha2 = new double[15];
+                    double quimica;
+                    double calculo;
+                    double somita = 0;
+                    double somaa = 0;
+                    double acabouacriatividade;
+                    double cancei;
+                    for(int i = 0; i < 15; i++)
+                    {
+                        Console.Write("Informe a nota de quimica:");
+                        notinha[i]=double.Parse(Console.ReadLine());
+                        somita += notinha[i];
+                        Console.Write("Informe a nota de calculo:");
+                        notinha2[i] = double.Parse(Console.ReadLine());
+                        somaa += notinha2[i];
+                    }
+                    quimica = notinha[0];
+                    calculo = notinha2[0];
+                    acabouacriatividade = somita / 15;
+                    cancei = somaa / 15;
+                    for (int i = 0; i < 15; i++)
+                    {
+                        if (notinha[i] < quimica)
+                        {
+                            quimica = notinha[i];
+                        }
+                        if (notinha2[i] > calculo)
+                        {
+                            calculo = notinha[i];
+                        }
+                    }
+                    Console.WriteLine("Maior de calculo: "+calculo);
+                    Console.WriteLine("Menor de quimica"+quimica);
+                    Console.WriteLine("Media de quimica"+acabouacriatividade);
+                    Console.WriteLine("Media de calculo"+cancei);
                     break;
                 default:
+                    Console.WriteLine("Número inválido");
                     break;
             }
             Console.ReadKey();
