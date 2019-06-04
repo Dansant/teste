@@ -1,0 +1,385 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Trab_De_ATP
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number;
+            Console.WriteLine("Digite o número da questão:");
+            number = int.Parse(Console.ReadLine());
+            switch (number)
+            {
+                case 1:
+                    double j;
+                    double[] vetor = new double[10];
+                    double maior;
+                    double menor;
+                    double media;
+                    double soma = 0;
+                    for(int i = 0; i < 10; i++)
+                    {
+                        Console.WriteLine("Digite um número:");
+                        j = double.Parse(Console.ReadLine());
+                        vetor[i] = j;
+                        soma += j;
+                    }
+                    media = soma / 10;
+                    maior = vetor[0];
+                    menor = vetor[0];
+                    Console.WriteLine("Respectivamente números acima da media{0}:", media);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (vetor[i] > media)
+                        {
+                            Console.Write(vetor[i]+"\t");
+                        }
+                        
+                        if (vetor[i] > maior)
+                        {
+                            maior = vetor[i];
+                        }
+                        if (vetor[i] < menor)
+                        {
+                            menor = vetor[i];
+                        }
+                    }
+                    Console.WriteLine("\nValores abaixo da media{0}", media);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (vetor[i] < media)
+                        {
+                            Console.Write(vetor[i] + "\t");
+                        }
+                    }
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (vetor[i] == maior)
+                        {
+                            Console.WriteLine("\nMaior valor:{0}, na posição:{1}",maior,i);
+                        }
+                        if (vetor[i] == menor)
+                        {
+                            Console.WriteLine("Menor valor:{0}, na posição:{1}", menor, i);
+                        }
+                    }
+                    break;
+                case 2:
+                    double hj=0;
+                    double mj=0;
+                    double mm=0;
+                    double hm=0;
+                    double bm=0;
+                    double bh=0;
+                    double nm=0;
+                    double nh=0;
+                    double m;
+                    double branco=0;
+                    double nulo = 0;
+                    double joao=0;
+                    double maria=0;
+                    double[] voto = new double[8];
+                    double[] genero = new double[8];
+                    for (int i = 0; i < 8; i++)
+                    {
+                        Console.WriteLine("Digite 1 para votar em João , 2 para Maria , 3 para Branco , 4 para Anular:");
+                        m = double.Parse(Console.ReadLine());
+                        voto[i] = m;
+                        Console.WriteLine("Digite 1 para homem, 2 para mulher:");
+                        m = double.Parse(Console.ReadLine());
+                        genero[i] = m;
+                        if (voto[i] == 1&&genero[i]==1)
+                        {
+                            joao++;
+                            hj++;
+                        }
+                        if (voto[i] == 1 && genero[i] == 2)
+                        {
+                            joao++;
+                            mj++;
+                        }
+                        if (voto[i] == 2&&genero[i]==1)
+                        {
+                            maria++;
+                            hm++;
+                        }
+                        if (voto[i] == 2 && genero[i] == 2)
+                        {
+                            maria++;
+                            mm++;
+                        }
+                        if (voto[i] == 3&&genero[i]==1)
+                        {
+                            branco++;
+                            bh++;
+                        }
+                        if (voto[i] == 3 && genero[i] == 2)
+                        {
+                            branco++;
+                            bm++;
+                        }
+                        if (voto[i] == 4&&genero[i]==1)
+                        {
+                            nulo++;
+                            nh++;
+                        }
+                        if (voto[i] == 4 && genero[i] == 2)
+                        {
+                            nulo++;
+                            nm++;
+                        }
+                    }
+                    if (joao > maria)
+                    {
+                        Console.WriteLine("Vencedor:João, com {0} votos masculinos e {1} votos femininos",hj,mj);
+                    }
+                    if (joao == maria)
+                    {
+                        Console.WriteLine("Empate");
+                    }
+                    if (joao < maria)
+                    {
+                        Console.WriteLine("Vencedor:Maria, com {0} votos masculinos e {1} votos femininos",hm , mm);
+                    }
+                    Console.WriteLine("Foram: {0} votos brancos, com {1} votos masculinos e {2} votos femininos", branco, bh,bm);
+                    Console.WriteLine("Foram: {0} votos nulos, com {1} votos masculinos e {2} votos femininos", nulo, nh, nm);
+                    break;
+                case 3:
+                    double[] sexo = new double[6];
+                    double somM = 0;
+                    double medM;
+                    double somH= 0;
+                    double medH;
+                    int g;
+                    int x;
+                    Console.WriteLine("Digite a quantidade de homens:");
+                    g = int.Parse(Console.ReadLine());
+                    while (g > 6 || g < 0)
+                    {
+                        Console.WriteLine("Invalido\nDigite a quantidade de homens:");
+                        g = int.Parse(Console.ReadLine());
+                    }
+                    double[] idadeH = new double[g];
+                    for (int i = 0; i < g; i++)
+                    {
+                        Console.WriteLine("Digite a idade(homem):");
+                        idadeH[i] = double.Parse(Console.ReadLine());
+                        somH += idadeH[i];
+                        sexo[i]++;
+                    }
+                    medH = somH / g;
+                    Console.WriteLine("Digite a quantidade de mulheres:");
+                    x = int.Parse(Console.ReadLine());
+                    while (x + g != 6||g<0)
+                    {
+                        Console.WriteLine("Invalido\nDigite a quantidade de mulheres:");
+                        x = int.Parse(Console.ReadLine());
+                    }
+                    double[] pesoM = new double[x];
+                    for (int i = 0; i < x; i++)
+                    {
+                        Console.WriteLine("Digite o peso(mulher):");
+                        pesoM[i] = double.Parse(Console.ReadLine());
+                        sexo[i]=+2;
+                        somM += pesoM[i];
+                    }
+                    medM = somM / x;
+                    Console.WriteLine("Media dos pesos das mulheres:" + medM);
+                    Console.WriteLine("Media das idades dos homens:" + medH);
+                    Console.WriteLine("Todas as idades dos homens:");
+                    for (int i = 0; i < g; i++)
+                    {
+                        Console.Write(idadeH[i]+"\t");;
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Todos os pesos das mulheres:");
+                    for (int i = 0; i < x; i++)
+                    {
+                        Console.Write(pesoM[i] + "\t"); ;
+                    }
+                    break;
+                case 4:
+                    double[] aed = new double[7];
+                    double[] fisica = new double[7];
+                    double[] gen = new double[7];
+                    int ho;
+                    int mu;
+                    Console.WriteLine("Digite a quantidade de homens:");
+                    ho = int.Parse(Console.ReadLine());
+                    while (ho < 0 || ho > 7)
+                    {
+                        Console.WriteLine("Inválido\nDigite a quantidade de homens:");
+                        ho = int.Parse(Console.ReadLine());
+                    }
+                    double[] fisH = new double[ho];
+                    for (int i = 0; i < ho; i++)
+                    {
+                        Console.WriteLine("Digite a nota de fisica:");
+                        fisH[i] = double.Parse(Console.ReadLine());
+                        fisica[i] = fisH[i];
+                        Console.WriteLine("Digite a nota de aed:");
+                        aed[i] = double.Parse(Console.ReadLine());
+                        gen[i]++;
+                    }
+                    Console.WriteLine("Digite a quantidade de mulheres:");
+                    mu = int.Parse(Console.ReadLine());
+                    while (ho + mu != 7 || mu < 0)
+                    {
+                        Console.WriteLine("Inválido\nDigite a quantidade de mulheres:");
+                        mu = int.Parse(Console.ReadLine());
+                    }
+                    double[] aedM = new double[mu];
+                    for (int i = 0; i < mu; i++)
+                    {
+                        Console.WriteLine("Digite a nota de fisica:");
+                        fisica[i] = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite a nota de aed:");
+                        aedM[i] = double.Parse(Console.ReadLine());
+                        aed[i] = aedM[i];
+                        gen[i]=+2;
+                    }
+                    double grande = fisica[0];
+                    double grandao = aed[0];
+                    for(int i = 0; i < 7; i++)
+                    {
+                        if (fisica[i] > grande)
+                        {
+                            grande = fisica[i];
+                        }
+                        if (aed[i] > grandao)
+                        {
+                            grandao = aed[i];
+                        }
+                    }
+                    Console.WriteLine("Notas de fisica dos homens:");
+                    for (int i = 0; i < ho; i++)
+                    {
+                        Console.Write(fisH[i]+"\t");
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Notas de aed das mulheres:");
+                    for (int i = 0; i < mu; i++)
+                    {
+                        Console.Write(aedM[i] + "\t");
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Maior nota de fisica:{0}\nMaior nota de aed:{1}", grande, grandao);
+                    break; 
+                case 5:
+                    int contando = 0;// sim h
+                    int contandodenovo = 0;//não h
+                    int contandonovamente = 0;//sim geral
+                    int tocontando = 0;//não geral
+                    int toacabandodecontar = 0;//sim m
+                    int ultimaconta = 0;//não m
+                    double[] ex = new double[8];
+                    double[] fex = new double[8];
+                    double[] jorge = new double[8];
+                    int macho=0;
+                    int femea=0;
+                    for(int i=0; i < 8; i++)
+                    {
+                        Console.WriteLine("Digite 1 para homem e 2 para mulher:");
+                        jorge[i] = double.Parse(Console.ReadLine());
+                        while(jorge[i]!=1|| jorge[i] != 2)
+                        {
+                            Console.WriteLine("Invalido\nDigite 1 para homem e 2 para mulher:");
+                            jorge[i] = double.Parse(Console.ReadLine());
+                        }
+                        if (jorge[i] == 1)
+                        {
+                            macho++;
+                        }
+                        if (jorge[i] == 2)
+                        {
+                            femea++;
+                        }
+                    }
+                    double[] machoex=new double[macho];
+                    for (int i = 0; i < macho; i++)
+                    {
+                        Console.WriteLine("Digite 1 para sim e 2 para não(homem):");
+                        machoex[i] = double.Parse(Console.ReadLine());
+                        ex[i] = machoex[i];
+                        if (machoex[i] == 1)
+                        {
+                            contando++;
+                            contandonovamente++;
+                        }
+                        if (machoex[i] == 2)
+                        {
+                            contandodenovo++;
+                            tocontando++;
+                        }
+                    }
+                        double[] femeaex=new double[femea];
+                    for (int i = 0; i < femea; i++)
+                    {
+                        Console.WriteLine("Digite 1 para sim e 2 para não(mulher):");
+                        femeaex[i] = double.Parse(Console.ReadLine());
+                        fex[i] = femeaex[i];
+                        if (femeaex[i] == 1)
+                        {
+                            toacabandodecontar++;
+                            contandonovamente++;
+                        }
+                        if (femeaex[i] == 2)
+                        {
+                            ultimaconta++;
+                            tocontando++;
+                        }
+                    }
+                    int somando = macho + femea;
+                    Console.WriteLine("Todos so votos o grupo:");
+                    for (int i = 0; i <somando ; i++)
+                    {
+                        if (ex[i] == 1)
+                        {
+                            Console.WriteLine("Sim");
+                        }
+                        if (fex[i] == 2)
+                        {
+                            Console.WriteLine("Não");
+                        }
+                    }
+                    Console.WriteLine("Todos os votos das mulheres:");
+                    for (int i = 0; i < femea; i++)
+                    {
+                        if (femeaex[i] == 1)
+                        {
+                            Console.WriteLine("Sim");
+                        }
+                        if (femeaex[i] == 2)
+                        {
+                            Console.WriteLine("Não");
+                        }
+                    }
+                    Console.WriteLine("Todos os votos dos homens:");
+                    for (int i = 0; i < macho; i++)
+                    {
+                        if (machoex[i] == 1)
+                        {
+                            Console.WriteLine("Sim");
+                        }
+                        if (machoex[i] == 2)
+                        {
+                            Console.WriteLine("Não");
+                        }
+                    }
+                    Console.WriteLine("Os homens tiveram {0} votos sim e {1} votos não", contando, contandodenovo);
+                    Console.WriteLine("As mulheres tiveram {0} votos sim e {1} votos não", toacabandodecontar, ultimaconta);
+                    Console.WriteLine("No geral temos {0} votos sim e {1} votos não",contandonovamente,tocontando);
+                    break;
+                default:
+                    Console.WriteLine("Número de exercício inválido.");
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
