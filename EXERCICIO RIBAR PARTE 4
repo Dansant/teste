@@ -1,0 +1,252 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Trab_De_ATP
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number;
+            Console.WriteLine("Digite o número da questão:");
+            number = int.Parse(Console.ReadLine());
+            switch (number)
+            {
+                case 1:
+                    double som = 0;
+                    for(int i = 0; i <= 60; i++)
+                    {
+                        som += i;
+                    }
+                    Console.WriteLine(som);
+                    som = 0;
+                    for (double i = 1; i <= 15; i++)
+                    {
+                        som += (1 / i);
+                    }
+                    Console.WriteLine(som);
+                    som = 0;
+                    for (double i = 1; i <= 49; i++)
+                    {
+                        if (i % 2 != 0)
+                        {
+                            som += i;
+                        }
+                    }
+                    Console.WriteLine(som);
+                    som = 0;
+                    for (double i = 1; i <= 80; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            som += i;
+                        }
+                    }
+                    Console.WriteLine(som);
+                    break;
+                case 2:
+                    double temp;
+                    double convert;
+                    Console.WriteLine("Digite a temperatura:");
+                    temp = double.Parse(Console.ReadLine());
+                    convert = (1.8 * temp) + 32;
+                    Console.WriteLine(convert+" Graus Fahrenheit");
+                    break;
+                case 3:
+                    double temps;
+                    double converts;
+                    Console.WriteLine("Digite a temperatura:");
+                    temps = double.Parse(Console.ReadLine());
+                    converts = (temps-32)/1.8;
+                    Console.WriteLine(converts + " Graus Celsius");
+                    break;
+                case 4:
+                    Console.WriteLine("Digite um valor em real:");
+                    double real = double.Parse(Console.ReadLine());
+                    double dolar = real / 3.86;//cotação do dia 4 de junho de 2019
+                    double euro = real / 4.34;//cotação do dia 4 de junho de 2019
+                    Console.WriteLine(dolar+" Dolares");
+                    Console.WriteLine(euro+" Euros");
+                    break;
+                case 5:
+                    Console.WriteLine("Deseja obter a distancia, a velocidade ou o tempo?");
+                    string rodadadecisao = Console.ReadLine().ToLower();
+                    double dis;
+                    double tempin;
+                    double rapidao;
+                    if (rodadadecisao == "velocidade")
+                    {
+                        Console.WriteLine("Informe a distância:");
+                        dis = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Informe o tempo:");
+                        tempin = double.Parse(Console.ReadLine());
+                        rapidao = dis / tempin;
+                        Console.WriteLine("Velocidade="+rapidao);
+                    }
+                    if (rodadadecisao == "tempo")
+                    {
+                        Console.WriteLine("Informe a distância:");
+                        dis = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Informe a velocidade:");
+                        rapidao = double.Parse(Console.ReadLine());
+                        tempin = dis / rapidao;
+                        Console.WriteLine("Tempo=" + tempin);
+                    }
+                    if (rodadadecisao == "distancia")
+                    {
+                        Console.WriteLine("Informe a velocidade:");
+                        rapidao = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Informe o tempo:");
+                        tempin = double.Parse(Console.ReadLine());
+                        dis = rapidao * tempin;
+                        Console.WriteLine("Distância=" + dis);
+
+                    }
+                    break;
+                case 6:
+                    Console.WriteLine("Digite um número:");
+                    double numerito = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Digite outro número:");
+                    double outronumerito = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Digite o simbolo da operação que deseja fazer:\n Adição+ ; Subtração- ; Multiplicação* ; Divisão/ :");
+                    string decidir = Console.ReadLine();
+                    if (decidir == "+")
+                    {
+                        double soma = numerito + outronumerito;
+                        Console.WriteLine(soma);
+                    }
+                    if (decidir == "-")
+                    {
+                        double subs = numerito - outronumerito;
+                        Console.WriteLine(subs);
+                    }
+                    if (decidir == "*")
+                    {
+                        double mutts = numerito * outronumerito;
+                        Console.WriteLine(mutts);
+                    }
+                    if (decidir == "/")
+                    {
+                        double divididin = numerito / outronumerito;
+                        Console.WriteLine(divididin);
+                    }
+                    break;
+                case 7:
+                    double maisoma=0;
+                    double outramedia;
+                    double consumo;
+                    double con;
+                    for(int j = 0; j < 1200; j++)
+                    {
+                        Console.WriteLine("Digite o consumo de água(em litros):");
+                        consumo = double.Parse(Console.ReadLine());
+                        con = consumo / 1000;
+                        maisoma += con;
+                    }
+                    outramedia = maisoma / 1200;
+                    Console.WriteLine("Media do bairro=" + outramedia + "metros cubicos");
+                    break;
+                case 8:
+                    double tosomando = 0;
+                    double[] numbs = new double[50];
+                    for (int i = 0; i < 50; i++)
+                    {
+                        Console.WriteLine("Digite um número:");
+                        double numeris = double.Parse(Console.ReadLine());
+                        numbs[i] = numeris;
+                        tosomando += numeris;
+                    }
+                    double grandao = numbs[0];
+                    double pequeninin = numbs[0];
+                    double mediasita = tosomando / 50;
+                    for (int i = 0; i < 50; i++)
+                    {
+                        if (numbs[i] > grandao)
+                        {
+                            grandao = numbs[i];
+                        }
+                        if (numbs[i] < pequeninin)
+                        {
+                            pequeninin = numbs[i];
+                        }
+                    }
+                    Console.WriteLine("Media=" + mediasita);
+                    Console.WriteLine("Maior=" + grandao);
+                    Console.WriteLine("Menor=" + pequeninin);
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    int numero;
+                    Console.WriteLine("Entre com o número que será feito o fatorial:");
+                    numero = int.Parse(Console.ReadLine());
+                    int fatorial;
+                    fatorial = numero;
+
+                    for (int i = numero - 1; i > 1; i--)
+                    {
+                        fatorial *= i;
+                    }
+
+                    Console.WriteLine("Valor total do fatorial:" + fatorial);
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    int counter=0;
+                    int counteeer = 0;
+                    double receptor=0;
+                    double final=0;
+                    bool flag=true;
+                    while (flag != false)
+                    {
+                        Console.WriteLine("Digite o número de pessoas:");
+                        int nnn = int.Parse(Console.ReadLine());
+                        for(int i = 0; i < nnn; i++)
+                        {
+                            Console.WriteLine("Digite 1 para homem e 2 para mulher");
+                            int xss = int.Parse(Console.ReadLine());
+                            if (xss == 1)
+                            {
+                                Console.WriteLine("Informe sua idade");
+                                int ssss = int.Parse(Console.ReadLine());
+                                final += ssss;
+                                counter++;
+                            }
+                            if (xss == 2)
+                            {
+                                counteeer++;
+                            }
+                        }
+                        flag = false;
+                    }
+                    receptor = final / counter;
+                    Console.WriteLine("Tem {0} homens e {1} mulheres",counter,counteeer);
+                    Console.WriteLine("Media={0}",receptor);
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                case 15:
+                    break;
+                case 16:
+                    break;
+                case 17:
+                    break;
+                case 18:
+                    break;
+                case 19:
+                    break;
+                case 20:
+                    break;
+                default:
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
