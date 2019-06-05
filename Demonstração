@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication31
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number = 0;
+            Console.WriteLine("Digite 1 para a demonstração da propriedade da soma de dois limites:");
+            number = int.Parse(Console.ReadLine());
+            switch (number)
+            {
+                case 1:
+            Console.WriteLine("HIPOTESE: LIM F(X)=L1, LIM G(X)=L2");
+            Console.WriteLine("          X->A         X->A");
+            Console.WriteLine("E>0 , O>0");
+            Console.WriteLine("POR DESIGUALDADE TRIANGULAR:");
+            Console.WriteLine("|[f(x)+g(x)]-(L1+L2)|=|[f(x)-L1]+[g(x)-L2]|<=|f(x)-L1|=|g(x)-L2|");
+            Console.WriteLine("PORTANTO,");
+            Console.WriteLine(" 0<|X-A|<o1 E POR CONSEQUÊNCIA 0<|X-A|<o2");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  v                               |");
+            Console.WriteLine("  VOCÊ TEM QUE: |f(x)-L1| < E/2(1)| ");
+            Console.WriteLine("                                  | ");
+            Console.WriteLine("                                  v");
+            Console.WriteLine("  VOCÊ TEM QUE: |g(x)-L2| < E/2 (2) ");
+            Console.WriteLine("PEGO OS MENORES VALORES DE OMEGA 1 E OMEGA 2(o):");
+            Console.WriteLine("|[f(x)+g(x)]-(L1+L2)|<=|[f(x)-L1]+[g(x)-L2]|< E/2 +E/2 (EPSION)");
+            Console.WriteLine("CONCLUSÃO DO PENSAMENTO:");
+            Console.WriteLine("|[f(x)+g(x)]-(L1+L2)|<=|[f(x)-L1]+[g(x)-L2]|< E");
+            Console.WriteLine(", DESSE MODO CONCLUO QUE NOSSA HIPOTESE SE TORNA VERDADEIRA <----->\n O LIMITE EXISTIR");
+            Console.WriteLine(" .");
+            Console.WriteLine(". .  LIM f(x)+g(x) = LIM f(x) + LIM g(x) = L1+L2.");
+            Console.WriteLine("     X-->A		    X-->A");
+                    break;
+            }
+            default:
+                      Console.WriteLine("Número inválido.");
+                    break;
+            Console.ReadKey();
+        }
+    }
+}
