@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp7
+{
+    class Menu
+    {
+        public static void Men()
+        {
+            Console.WriteLine("0-Sair");
+            Console.WriteLine("1-Adicionar");
+            Console.WriteLine("2-Pesquisar");
+            Console.WriteLine("3-Consultar a disponibilidade do carro");
+            Console.WriteLine("4-Alterar o status do carro");
+            Console.WriteLine("5-Excluir carro");
+        }
+    }
+}
