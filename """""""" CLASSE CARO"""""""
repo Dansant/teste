@@ -1,0 +1,96 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+namespace ConsoleApp7
+{
+    class Carro
+    {
+        private string marca;
+        private string modelo;
+        private string placa;
+        private string nome;
+        private int codigo;
+        public Carro()
+        {
+        }
+        public Carro(string marca, string modelo, string placa, string nome, int codigo)
+        {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.placa = placa;
+            this.nome = nome;
+            this.codigo = codigo;
+        }
+        public string Marca { get => marca; set => marca = value; }
+        public string Modelo { get => modelo; set => modelo = value; }
+        public string Placa { get => placa; set => placa = value; }
+        public string Nome { get => nome; set => nome = value; }
+        public int Codigo { get => codigo; set => codigo = value; }
+        public static void Adicionar(Carro[] carro)
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Carros" + ".txt";
+            StreamWriter writer = new StreamWriter(namefile, true);
+            for (int i = 0; i < carro.Length; i++)
+            {
+                writer.WriteLine(carro[i].marca + ";" + carro[i].modelo + ";" + carro[i].placa + ";" + carro[i].nome + ";" + carro[i].codigo);
+            }
+            Console.WriteLine("Gravado com sucesso");
+            writer.Close();
+        }
+        public static bool VerificarCodigo(int codigo)
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Carros" + ".txt";
+            if (File.Exists(namefile))
+            {
+                StreamReader reader = new StreamReader(namefile, true);
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    string[] dados = line.Split(';');
+                    if (codigo == int.Parse(dados[4]))
+                    {
+                        reader.Close();
+                        return true;
+                    }
+                }
+                reader.Close();
+            }
+            return false;
+        }
+        public static void Pesquisar(int codigo)
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Carros" + ".txt";
+            bool existe = false;
+            StreamReader reader = new StreamReader(namefile);
+            while (!reader.EndOfStream)
+            {
+                string linha = reader.ReadLine();
+                string[] dados = linha.Split(';');
+                if (codigo == int.Parse(dados[4]))
+                {
+                    existe = true; ;
+                    Console.WriteLine("Modelo:" + dados[0] + "\nMarca:" + dados[1] + "\nPlaca:" + dados[2] + "\nNome:" + dados[3] + "\nCódigo:" + dados[4]);
+                }
+            }
+            reader.Close();
+            if (!existe)
+            {
+                Console.WriteLine("Automovel não encontrado!");
+            }
+        }
+        public static void Consultar(int consultar)
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Carros" + ".txt";
+            bool existe = false;
+        }
+        public static void Alterar(int alterar)
+        {
+
+        }
+        public static void Excluir(int excluir)
+        {
+
+        }
+    }
+}
