@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+namespace ConsoleApp8
+{
+    class Pesquisar
+    {
+        private string matricula;
+       public Pesquisar()
+        {
+        }
+        public Pesquisar(string matricula)
+        {
+            this.matricula = matricula;
+        }
+
+        public string Matricula { get => matricula; set => matricula = value; }
+        static public void Pesq(Pesquisar matric)
+        {
+            int count = 0;
+            Vestibular[] mostrar;
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Alunos" + ".txt";
+            bool pesq = false;
+            if (File.Exists(namefile))
+            {
+                StreamReader rd = new StreamReader(namefile);
+                while (!rd.EndOfStream)
+                {
+                    string linha = rd.ReadLine();
+                    string[] dados = linha.Split(';');
+                    if ((dados[0]).CompareTo (matric.matricula)==0)
+                    {
+                        pesq = true;
+                    }
+                    while (!rd.EndOfStream)
+                    {
+                        count++;
+                    }
+                }
+                rd.Close();
+            }
+            mostrar = new Vestibular[count];
+            for (int i = 0; i < count; i++)
+            {
+                mostrar[i] = new Vestibular();
+            }
+
+            if (pesq == true)
+            {
+                StreamReader rd = new StreamReader(namefile);
+                while (!rd.EndOfStream)
+                {
+                    string linha = rd.ReadLine();
+                    string[] dados = linha.Split(';');
+                    for (int i = 0; i < count; i++)
+                    {
+                        mostrar[i].Inscricao = dados[0];
+                        mostrar[i].Nome = dados[1];
+                        mostrar[i].Curso = int.Parse(dados[2]);
+                        mostrar[i].Nota = double.Parse(dados[3]);
+                    }
+                }
+                rd.Close();
+                for (int i = 0; i < count; i++)
+                {
+                    if ((mostrar[i].Inscricao).CompareTo(matric.matricula)==0)
+                    {
+                        Console.WriteLine("Inscrição:"+mostrar[i].Inscricao+"\nNome:"+mostrar[i].Nome+"\nNúmero da opção de curso:"+mostrar[i].Curso+"\nNota:"+mostrar[i].Nota);
+                    }
+                }
+                Console.WriteLine("Pronto!");
+            }
+            if (pesq == false)
+            {
+                Console.WriteLine("Matricula inexisteste");
+            }
+            if (!File.Exists(namefile))
+            {
+                Console.WriteLine("Arquivo não encontrado.");
+            }
+        }
+    }
+}
