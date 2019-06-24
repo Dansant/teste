@@ -1,0 +1,133 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApp10
+{
+    class Biblioteca
+    {
+        public static void Adicionar(Livro[,,] livro)
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Biblioteca" + ".txt";
+            StreamWriter writer = new StreamWriter(namefile, true);
+            for (int i = 0; i < livro.GetLength(0); i++)
+            {
+                for (int j = 0; j < livro.GetLength(1); j++)
+                {
+                    for (int k = 0; k < livro.GetLength(2); k++)
+                    {
+                        writer.WriteLine(livro[i, j, k].Nome + ";" + livro[i, j, k].Prateleira + ";" + livro[i, j, k].Estante + ";" + livro[i, j, k].Corredor + ";" + livro[i, j, k].Codigo);
+                    }
+                }
+            }
+            writer.Close();
+            Console.WriteLine("Gravado com sucesso!");
+        }
+        public static bool Verificar(int codigo)  //Verificar
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Biblioteca" + ".txt";
+            if (File.Exists(namefile))
+            {
+                StreamReader Reader = new StreamReader(namefile);
+                string linha = Reader.ReadLine();
+                string[] dados = linha.Split(';');
+                if (codigo == int.Parse(dados[4]))
+                {
+                    Reader.Close();
+                    return true;
+                }
+                Reader.Close();
+            }
+            return false;
+        }
+        public static void Pesquisar(int codigo)
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Biblioteca" + ".txt";
+            bool existe = false;
+            if (File.Exists(namefile))
+            {
+                StreamReader Reader = new StreamReader(namefile);
+                while (!Reader.EndOfStream)
+                {
+                    string linha = Reader.ReadLine();
+                    string[] dados = linha.Split(';');
+                    if (codigo == int.Parse(dados[4]))
+                    {
+                        existe = true;
+                        Console.WriteLine("Coordenadas do {0}: prateleira:{1}, estante:{2}, corredor:{3} ", dados[0], dados[1], dados[2], dados[3]);
+                    }
+                }
+                Reader.Close();
+                if (existe == false)
+                {
+                    Console.WriteLine("O livro não existe na biblioteca.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Arquivo não encontrado ou não existente.");
+            }
+        }
+        public static void Mostrar()
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Biblioteca" + ".txt";
+            if (File.Exists(namefile))
+            {
+                StreamReader Reader = new StreamReader(namefile);
+                while (!Reader.EndOfStream)
+                {
+                    string linha = Reader.ReadLine();
+                    string[] dados = linha.Split(';');
+                    Console.WriteLine("Nome:" + dados[0] + "\nPrateleira:" + dados[1] + "\nEstante:" + dados[2] + "\nCorredor:" + dados[3] + "\nCódigo:" + dados[4] + "\n_________________________________________________");
+                }
+                Reader.Close();
+            }
+            else
+            {
+                Console.WriteLine("Arquivo não encontrado ou não existente.");
+            }
+        }
+        public static Livro[] Retornar()
+        {
+            string namefile = @"C:\Users\danie\OneDrive\Área de Trabalho\Biblioteca" + ".txt";
+            if (File.Exists(namefile))
+            {
+                int i = 0;
+                int qtd = File.ReadAllLines(namefile).Count();
+                Livro[] toshi = new Livro[qtd];
+                StreamReader Reader = new StreamReader(namefile);
+                while (!Reader.EndOfStream)
+                {
+                    string linha = Reader.ReadLine();
+                    string[] dados = linha.Split(';');
+                    toshi[i] = new Livro(dados[0], int.Parse(dados[1]), int.Parse(dados[2]), int.Parse(dados[3]), int.Parse(dados[4]));
+                    i++;
+                }
+                Reader.Close();
+                return toshi;
+            }
+            else
+            {
+                Console.WriteLine("Arquivo não encontrado ou não existente.");
+                return null;
+            }
+        }
+        public static bool Check(Livro[] livro, int codigo)//FIRU
+        {
+            bool flag = false;
+            if (livro != null)
+            {
+                for (int i = 0; i < livro.GetLength(0); i++)
+                {
+                    if (livro[i].Codigo == codigo)
+                    {
+                        flag = true;
+                    }
+                }
+            }
+            return flag;
+        }
+    }
+}
