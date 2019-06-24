@@ -1,0 +1,120 @@
+using System;
+
+namespace ConsoleApp10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool trigger = true;
+            while (trigger)
+            {
+                Menu.Men();
+                int escolha = int.Parse(Console.ReadLine());
+                switch (escolha)
+                {
+                    case 0:
+                        trigger = false;
+                        break;
+                    case 1:
+                        Console.WriteLine("Digite a quantidade de prateleiras:");
+                        int prateleiras = int.Parse(Console.ReadLine());
+                        while (prateleiras <= 0)
+                        {
+                            Console.WriteLine("Inválido!\nDigite novamente a quantidade de prateleiras:");
+                            prateleiras = int.Parse(Console.ReadLine());
+                        }
+                        Console.WriteLine("Digite a quantidade de estantes:");
+                        int estante = int.Parse(Console.ReadLine());
+                        while (estante <= 0)
+                        {
+                            Console.WriteLine("Inválido!\nDigite novamente a quantidade de estantes:");
+                            estante = int.Parse(Console.ReadLine());
+                        }
+                        Console.WriteLine("Digite a quantidade de corredores:");
+                        int corredor = int.Parse(Console.ReadLine());
+                        while (corredor <= 0)
+                        {
+                            Console.WriteLine("inválido!\nDigite novamente a quantidade de corredores:");
+                            corredor = int.Parse(Console.ReadLine());
+                        }
+                        Livro[,,] livro = new Livro[prateleiras, estante, corredor];
+                        for (int i = 0; i < livro.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < livro.GetLength(1); j++)
+                            {
+                                for (int k = 0; k < livro.GetLength(2); k++)
+                                {
+                                    livro[i, j, k] = new Livro();
+                                }
+                            }
+                        }
+                        Console.Clear();
+                        for (int i = 0; i < livro.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < livro.GetLength(1); j++)
+                            {
+                                for (int k = 0; k < livro.GetLength(2); k++)
+                                {
+                                    Console.WriteLine("Digite o nome do livro:");
+                                    livro[i, j, k].Nome = Console.ReadLine();
+                                    Console.WriteLine("Digite o número da prateleira do livro:");
+                                    livro[i, j, k].Prateleira = int.Parse(Console.ReadLine());
+                                    while (livro[i, j, k].Prateleira > prateleiras || livro[i, j, k].Prateleira <= 0)
+                                    {
+                                        Console.WriteLine("Inválido!\nDigite novamente o número da prateleira do livro:");
+                                        livro[i, j, k].Prateleira = int.Parse(Console.ReadLine());
+                                    }
+                                    Console.WriteLine("Digite o número da estante do livro:");
+                                    livro[i, j, k].Estante = int.Parse(Console.ReadLine());
+                                    while (livro[i, j, k].Estante > estante || livro[i, j, k].Estante <= 0)
+                                    {
+                                        Console.WriteLine("Inválido!\nDigite novamente o número da estante do livro:");
+                                        livro[i, j, k].Estante = int.Parse(Console.ReadLine());
+                                    }
+                                    Console.WriteLine("Digite o número do corredor:");
+                                    livro[i, j, k].Corredor = int.Parse(Console.ReadLine());
+                                    while (livro[i, j, k].Corredor > corredor || livro[i, j, k].Corredor <= 0)
+                                    {
+                                        Console.WriteLine("Inválido!\nDigite novamente o número do corredor:");
+                                        livro[i, j, k].Corredor = int.Parse(Console.ReadLine());
+                                    }
+                                    Console.WriteLine("Digite o código de cadastro do livro:");
+                                    livro[i, j, k].Codigo = int.Parse(Console.ReadLine());
+
+                                    while (livro[i, j, k].Codigo <= 0)
+                                    {
+                                        Console.WriteLine("Inválido!\nDigite novamente o código de cadastro do livro:");
+                                        livro[i, j, k].Codigo = int.Parse(Console.ReadLine());
+                                    }
+                                    while (Biblioteca.Check(Biblioteca.Retornar(),livro[i,j,k].Codigo))
+                                    {
+                                        Console.WriteLine("Código já cadastrado!\nDigite novamente o código de cadastro do livro:");
+                                        livro[i, j, k].Codigo = int.Parse(Console.ReadLine());
+                                    }
+                                }
+                            }
+                            Biblioteca.Adicionar(livro);
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("Digite o código do livro que você deseja pesquisar:");
+                        int pesquisar = int.Parse(Console.ReadLine());
+                        while (pesquisar <= 0)
+                        {
+                            Console.WriteLine("Inválido!\nDigite novamente o código do livro que você deseja pesquisar:");
+                            pesquisar = int.Parse(Console.ReadLine());
+                        }
+                        Biblioteca.Pesquisar(pesquisar);
+                        break;
+                    case 3:
+                        Biblioteca.Mostrar();
+                        break;
+                    default:
+                        Console.WriteLine("Inválido!Digite novamente o comando numérico");
+                        break;
+                }
+            }
+        }
+    }
+}
