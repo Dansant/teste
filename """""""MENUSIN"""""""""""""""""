@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApp10
+{
+    class Menu
+    {
+        public static void Men()
+        {
+            Console.WriteLine("0-Sair");
+            Console.WriteLine("1-Adicionar livro");
+            Console.WriteLine("2-Pesquisar livro");
+            Console.WriteLine("3-Mostrar livros");
+
+        }
+    }
+}
