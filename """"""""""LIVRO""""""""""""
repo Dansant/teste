@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApp10
+{
+    class Livro
+    {
+        private string nome;
+        private int prateleira;
+        private int estante;
+        private int corredor;
+        private int codigo;
+
+        public Livro()
+        {
+        }
+        public Livro(string nome, int prateleira, int estante, int corredor, int codigo)
+        {
+            this.nome = nome;
+            this.prateleira = prateleira;
+            this.estante = estante;
+            this.corredor = corredor;
+            this.codigo = codigo;
+        }
+        public string Nome { get => nome; set => nome = value; }
+        public int Prateleira { get => prateleira; set => prateleira = value; }
+        public int Estante { get => estante; set => estante = value; }
+        public int Corredor { get => corredor; set => corredor = value; }
+        public int Codigo { get => codigo; set => codigo = value; }
+    }
+}
